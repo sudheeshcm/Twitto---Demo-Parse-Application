@@ -1,0 +1,17 @@
+{
+    "applications": {
+        "_default": {
+            "link": "twitto"
+        }, 
+        "twitto": {
+            "applicationId": "4YqiCMjLay8DDfcq6KlrNV3F38P8EJT1Y9ZnvuUg", 
+            "masterKey": "plUYOChnRFhjVFtYdy6n3b2ABovk9KiYXtUxzQrs",
+	    "clientKey": "DvWb7Ql768IRZHlGR9EsrggdETp5E1m7CnM00FWp",
+	    "javaScriptKey": "9JupQ9cO8O6ECM20awuueXBhxk1YeBx8tATmyNOc",
+	    "restApiKey": "gLgEF6L4KJOKWDVRulm1M9yihnsM1o7umVs73Kze"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.4.0"
+    }
+}
