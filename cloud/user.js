@@ -10,6 +10,7 @@ module.exports = function(){
     res.render('signup');
   });
 
+  // Renders the reset password page.
   app.get('/resetPassword', function(req, res) {
     res.render('resetPassword');
   });
@@ -43,11 +44,10 @@ module.exports = function(){
     res.render('login');
   });
 
+//Loads the user Search page
   app.get('/searchpage', function(req, res) {
     var user = Parse.User.current();
     console.log(user);
-   // res.send("Everything is working.." + user.attributes.username);
-   // console.log(user.attributes.username);
     if(user != null){
       console.log("User logged in, "+user.attributes.username);
       res.render('searchpage');
@@ -92,9 +92,8 @@ module.exports = function(){
   });
 
 
-//  exports.loginSession = function(req,res) {
+//Obsolute_Code to initialize session on client side if login is mage on server side.
 app.post('/loginSession', function(req, res) {
-    // var defaultLanguage = req.app.get('defaultLanguage');
 
     var sessionToken = req.body.sessionToken;
     console.log("loginSession called..!!");
@@ -111,8 +110,6 @@ app.post('/loginSession', function(req, res) {
     });
 });                          
 
-
-
   //Logs out the user
   app.get('/logout', function(req, res) {
           var user =  Parse.User.current();
@@ -123,7 +120,7 @@ app.post('/loginSession', function(req, res) {
           res.redirect('/login');
   });
 
-
+  //Code to reset password if the user forgets his current one.
   app.post('/resetPass', function(req, res) {
     var email = req.body.email;
     console.log("Password reset called.");
@@ -152,12 +149,12 @@ app.post('/loginSession', function(req, res) {
     });
   });
 
+
+// Renders homepage
   app.get('/homepage', function(req, res) {
     
     var user = Parse.User.current();
     console.log(user);
-   // res.send("Everything is working.." + user.attributes.username);
-   // console.log(user.attributes.username);
     if(user != null){
       console.log("User logged in, "+user.attributes.username);
       res.render('homepage');
@@ -168,7 +165,7 @@ app.post('/loginSession', function(req, res) {
     }
   });
  
-
+//Code to populate user info on the homepage.
   app.get('/userinfo/:id', function(req, res) {
      var userId = req.params.id;
      console.log("UserID="+userId);
@@ -185,9 +182,10 @@ app.post('/loginSession', function(req, res) {
     });
   });
 
-
-app.get('/search/:key', function(req, res) {
+//Code to fetch all users according to the search query.
+app.get('/search/:skip/:key', function(req, res) {
         var keyword = req.params.key;
+        var skip = req.params.skip;
         console.log("keyword="+keyword);
         console.log("/Search called.");
         
@@ -195,9 +193,12 @@ app.get('/search/:key', function(req, res) {
         var query = new Parse.Query(User);
         query.startsWith("search_name", keyword.toLowerCase());
         query.ascending("username");
+        query.limit(5);
+        query.skip(skip);
         query.find({
                       success: function(results) {
                             alert("Successfully retrieved " + results.length + " Users.");
+                                
                             console.log("User Results: "+ results);
                             for (var i = 0; i < results.length; i++) { 
                                   var object = results[i];
@@ -207,8 +208,6 @@ app.get('/search/:key', function(req, res) {
                                     UsersNumber : results.length,
                                     results : results
                             };
-                            console.log("Data: "+data);
-                            console.log(data.results[2]);
                             res.json(data);
                       },
                       error: function(error) {
@@ -217,13 +216,15 @@ app.get('/search/:key', function(req, res) {
         });      
   });
 
-app.get('/search/', function(req, res) {
+//Code to fetch all users if no search query is present
+app.get('/search/:skip/', function(req, res) {
         
         console.log("/Search/ called.");
-        
+        var skip = req.params.skip;
         var User = Parse.Object.extend("User");                    
         var query = new Parse.Query(User);
-        query.limit(10);
+        query.limit(5);
+        query.skip(skip);
         query.ascending("username");
         query.find({
                       success: function(results) {
@@ -248,6 +249,7 @@ app.get('/search/', function(req, res) {
         });      
   });
   
+
   app.get('/userdetails/:id/:reqUser', function(req, res) {
      var userId = req.params.id;
      var reqUserId = req.params.reqUser;
@@ -293,7 +295,7 @@ app.get('/search/', function(req, res) {
     });
   });
 
-  // Logged user follow a selected user
+  // Logged user follow/unfollw a selected user
   app.post('/follow', function(req, res) {
     console.log("Follow method started..");
     var pageStatus = "";
@@ -349,6 +351,7 @@ app.get('/search/', function(req, res) {
     
   });
 
+// Populate recent users on the homepage
 app.get('/populateUsers', function(req, res) {
       
        var user = Parse.User.current();
@@ -388,7 +391,7 @@ app.get('/populateUsers', function(req, res) {
     });
   });
 
-
+// Populate friends of the clicked user.
 app.get('/populateFriends/:id', function(req, res) {
        
     var userId = req.params.id;
