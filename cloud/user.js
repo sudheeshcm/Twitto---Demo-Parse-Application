@@ -189,13 +189,19 @@ app.get('/search/:skip/:key', function(req, res) {
         console.log("keyword="+keyword);
         console.log("/Search called.");
         
-        var User = Parse.Object.extend("User");                    
-        var query = new Parse.Query(User);
-        query.startsWith("search_name", keyword.toLowerCase());
-        query.ascending("username");
-        query.limit(5);
-        query.skip(skip);
-        query.find({
+        var User = Parse.Object.extend("User");
+
+        var query1 = new Parse.Query(User);
+        query1.startsWith("search_name", keyword.toLowerCase());
+        
+        var query2 = new Parse.Query(User);
+        query2.contains("search_name", keyword.toLowerCase());
+      
+        var mainQuery = Parse.Query.or(query1, query2);
+        mainQuery.ascending("username");
+        mainQuery.limit(5);
+        mainQuery.skip(skip);
+        mainQuery.find({
                       success: function(results) {
                             alert("Successfully retrieved " + results.length + " Users.");
                                 

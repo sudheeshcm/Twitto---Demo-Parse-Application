@@ -25,14 +25,14 @@ var populateUserInfo = function(id) {
                                         console.log(user);
                                         console.log("Ajax call completed..!!");
                                         tableContent += '<table><tr>';
-                                        tableContent += '<td><a href="/userdetails.html" class="linkshowuser" rel="' + user.username + '">' + user.username + '</a></td></tr>';
+                                        tableContent += '<td><h4><a href="/userdetails.html" class="linkshowuser" rel="' + user.username + '">' + user.username + '</a></h4></td></tr>';
                                         tableContent += '<tr><td>' + user.email + '</td></tr>';
                                         tableContent += '<tr><td>' + user.about + '</td></tr>';
                                         tableContent += '</table>';
                                     
                                     localStorage.clickedUser = user.username;    
                                     console.log("User clicked, Name: "+ localStorage.clickedUser);
-
+                                    document.getElementById("sideBar").style.visibility = "visible";
                                     document.getElementById("user-info").style.visibility = "visible";
                                     document.getElementById("user-infoHead").style.visibility = "visible";
                                     document.getElementById("HisFriends").style.visibility = "visible";
@@ -76,6 +76,9 @@ $(function() {
                     var onClickAction = 'populateUserInfo("'+data.results[i].objectId+'");';
                     html += '<a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+'>@ '+data.results[i].username+'</a><h5>&nbsp; &nbsp; &nbsp;- '+data.results[i].about+'</h5><h6> &nbsp; &nbsp; &nbsp;Joined Twitto @ '+newDateTimeFormat+'</h6>';
                 }
+                if(data.UsersNumber == 0){
+                    html += '<h5> No recent Users found..!</h5>';
+                }
                 document.getElementById("main-container").innerHTML = html;
             });
     };
@@ -95,6 +98,9 @@ $(function() {
                     var newDateTimeFormat = moment(timeStr).calendar();
                     html += '<h5 style="color:#336699"> # '+data.results[i].tweetMessage+'</h5><h6 style="font-weight: bold;">&nbsp; &nbsp; &nbsp;- '+data.results[i].username+' @ '+newDateTimeFormat+'</h6><br>';
                 }
+                if(data.TweetsNumber == 0){
+                    html += '<h5> No Recent Tweets found..!</h5>';
+                }
                 document.getElementById("tweetMessageHtml").innerHTML = html;
             });
     };
@@ -104,7 +110,8 @@ $(function() {
     console.log("Logged user: "+localStorage.loggedusername);
     console.log("clicked User ID: "+localStorage.clickedUserId);
     console.log("Local Storage:"+ localStorage);
-    document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';   
+    document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';  
+    document.getElementById("sideBar").style.visibility = "hidden";
     document.getElementById("user-info").style.visibility = "hidden";
     document.getElementById("user-infoHead").style.visibility = "hidden";
     document.getElementById("HisFriends").style.visibility = "hidden";

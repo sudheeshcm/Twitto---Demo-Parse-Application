@@ -63,7 +63,6 @@ module.exports = function(){
       var user = Parse.User.current();
       console.log(user.get('username'));
       var TweetUserList = user.get('friends');
-      var TweetUserList = user.get('friends');
             console.log("TweetUserList: "+TweetUserList);
             if (TweetUserList == undefined) {
               TweetUserList = [user.get('username'),"null"];
