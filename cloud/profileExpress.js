@@ -25,6 +25,7 @@ module.exports = function(){
      res.json(user);
   });
 
+
   app.get('/edit', function(req, res) {
      var user = Parse.User.current();
      if (user != null) {
@@ -36,6 +37,7 @@ module.exports = function(){
       res.render('login');
     }
   });
+
 
   app.get('/populateFriends', function(req, res) {
         console.log("/populateFriends called.");
@@ -106,6 +108,7 @@ module.exports = function(){
   });
 
 
+
   app.get('/populatePMessages', function(req, res) {
        
     var currentUser = Parse.User.current(); 
@@ -140,6 +143,7 @@ module.exports = function(){
               
   });
 
+
   // Edit user details
   app.post('/editdetails', function(req, res) {
     var loggedUserId = req.body.loggedUserId;
@@ -170,5 +174,7 @@ module.exports = function(){
         }); 
       
   });
+
+
   return app;
 }();
