@@ -76,9 +76,6 @@ $(function() {
                     var onClickAction = 'populateUserInfo("'+data.results[i].objectId+'");';
                     html += '<a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+'>@ '+data.results[i].username+'</a><h5>&nbsp; &nbsp; &nbsp;- '+data.results[i].about+'</h5><h6> &nbsp; &nbsp; &nbsp;Joined Twitto @ '+newDateTimeFormat+'</h6>';
                 }
-                if(data.UsersNumber == 0){
-                    html += '<h5> No recent users found..!!</h5>';
-                }
                 document.getElementById("main-container").innerHTML = html;
             });
     };
@@ -97,9 +94,6 @@ $(function() {
                     var timeStr = data.results[i].createdAt;
                     var newDateTimeFormat = moment(timeStr).calendar();
                     html += '<h5 style="color:#336699"> # '+data.results[i].tweetMessage+'</h5><h6 style="font-weight: bold;">&nbsp; &nbsp; &nbsp;- '+data.results[i].username+' @ '+newDateTimeFormat+'</h6><br>';
-                }
-                if(data.TweetsNumber == 0){
-                    html += '<h5> No recent Tweets found..!!</h5>';
                 }
                 document.getElementById("tweetMessageHtml").innerHTML = html;
             });

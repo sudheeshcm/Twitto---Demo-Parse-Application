@@ -1,3 +1,7 @@
+var skipCount = 0;
+var keyword = localStorage.searchKeyword;
+var html = '';
+
 var Alert = function(msg){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
@@ -22,17 +26,9 @@ var friendRedirect = function(id, username){
                     console.log("friendRedirect called, Clicked UserID: "+id+", User: "+username);
 };
 
-    console.log("/Search Page loded.");
-    console.log("Logged user ID: "+localStorage.loggedUserId);
-    console.log("Logged user: "+localStorage.loggedusername);
-    console.log("clicked User ID: "+localStorage.clickedUserId);
-    console.log("Local Storage:"+ localStorage);
-    document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';   
-    document.getElementById("Page-heading").innerHTML = '';
-
-    var keyword = localStorage.searchKeyword;
-    $.getJSON( '/search/'+keyword, function( data ) {
-                var html = '';
+var callSearch = function(skipCount, keyword){
+    console.log("Skip Count: "+skipCount);
+    $.getJSON( '/search/'+skipCount+'/'+keyword, function( data ) {
                 console.log(data.UsersNumber);
                 console.log(data.results);
                 for(var i=0; i<data.UsersNumber; i++){
@@ -46,5 +42,22 @@ var friendRedirect = function(id, username){
                 }
                 document.getElementById("searchresults").innerHTML = html;
     });
+};
+
+var loadMore = function(){
+    skipCount = skipCount + 5;
+    callSearch(skipCount, keyword);
+}
+
+
+    console.log("/Search Page loded.");
+    console.log("Logged user ID: "+localStorage.loggedUserId);
+    console.log("Logged user: "+localStorage.loggedusername);
+    console.log("clicked User ID: "+localStorage.clickedUserId);
+    console.log("Local Storage:"+ localStorage);
+    document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';   
+    document.getElementById("Page-heading").innerHTML = '';
+
+    callSearch(skipCount, keyword);
 
 

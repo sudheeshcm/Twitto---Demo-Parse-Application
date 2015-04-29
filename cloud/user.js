@@ -208,6 +208,8 @@ app.get('/search/:skip/:key', function(req, res) {
                                     UsersNumber : results.length,
                                     results : results
                             };
+                            console.log("Data: "+data);
+                            console.log(data.results[2]);
                             res.json(data);
                       },
                       error: function(error) {

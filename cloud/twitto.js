@@ -20,12 +20,9 @@ module.exports = function(){
          
         tweets.save(null, {
           success: function(tweets) {
-            // Execute any logic that should take place after the object is saved.
             console.log('New object created with objectId: ' + tweets.id);
           },
           error: function(tweets, error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and message.
             console.log('Failed to create new object, with error code: ' + error.message);
           }
         });
@@ -60,10 +57,12 @@ module.exports = function(){
         res.redirect('/userdetails.html');                     
   });
 
+  //Populates tweets on the home page. Will populate tweets from the logged user's friends and from himself.
   app.get('/populateTweets', function(req, res) {
       
       var user = Parse.User.current();
       console.log(user.get('username'));
+      var TweetUserList = user.get('friends');
       var TweetUserList = user.get('friends');
             console.log("TweetUserList: "+TweetUserList);
             if (TweetUserList == undefined) {
@@ -72,8 +71,7 @@ module.exports = function(){
             else{
               TweetUserList.push(user.get('username'));  
             }
-            
-     // TweetUserList += ","+user.get('username');
+     
       console.log("TweetUserList after adding CurrentUser: "+TweetUserList);
        
       var Tweet = Parse.Object.extend("Tweets");
@@ -104,7 +102,7 @@ module.exports = function(){
     });
   });
 
-
+  //Populate personal messages between logged user and the clicked user
   app.get('/populatePMessages/:clickeduser', function(req, res) {
        
     var selectedUser = req.params.clickeduser;

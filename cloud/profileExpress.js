@@ -5,6 +5,7 @@ module.exports = function(){
   var app = express();
   app.set('view engine', 'ejs');
 
+  // Renders the profile page
   app.get('/profile', function(req, res) {
     var user = Parse.User.current();
     console.log(user);
@@ -18,14 +19,14 @@ module.exports = function(){
     }
   });
 
-
+  // Fetches the current user
   app.get('/profileUser', function(req, res) {
      var user = Parse.User.current();
      console.log("Current User Fetched, ID:" +user.id+", Username: "+ user.attributes.username);
      res.json(user);
   });
 
-
+  // Renders the edit page
   app.get('/edit', function(req, res) {
      var user = Parse.User.current();
      if (user != null) {
@@ -38,7 +39,7 @@ module.exports = function(){
     }
   });
 
-
+  // Populate the current users friends list
   app.get('/populateFriends', function(req, res) {
         console.log("/populateFriends called.");
         var user = Parse.User.current();
@@ -73,7 +74,7 @@ module.exports = function(){
   });
 
 
-
+  // Populate the Tweets by current user
   app.get('/populateTweets', function(req, res) {
       
       var user = Parse.User.current();
@@ -81,7 +82,7 @@ module.exports = function(){
              
       var Tweet = Parse.Object.extend("Tweets");
       var query = new Parse.Query(Tweet);
-      query.limit(20);
+      query.limit(10);
       query.descending("createdAt");
       query.equalTo("username", user.attributes.username);
       query.find({
@@ -107,8 +108,7 @@ module.exports = function(){
       });
   });
 
-
-
+  // Populate the personal messages to the current user.
   app.get('/populatePMessages', function(req, res) {
        
     var currentUser = Parse.User.current(); 
@@ -142,7 +142,6 @@ module.exports = function(){
               });
               
   });
-
 
   // Edit user details
   app.post('/editdetails', function(req, res) {
