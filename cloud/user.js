@@ -441,7 +441,6 @@ app.get('/populateFriends/:id', function(req, res) {
         } 
     });         
   });
-//Comment added
 
   return app;
 }();
