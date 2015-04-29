@@ -66,7 +66,13 @@ module.exports = function(){
       console.log(user.get('username'));
       var TweetUserList = user.get('friends');
             console.log("TweetUserList: "+TweetUserList);
-            TweetUserList.push(user.get('username'));
+            if (TweetUserList == undefined) {
+              TweetUserList = [user.get('username'),"null"];
+            }
+            else{
+              TweetUserList.push(user.get('username'));  
+            }
+            
      // TweetUserList += ","+user.get('username');
       console.log("TweetUserList after adding CurrentUser: "+TweetUserList);
        

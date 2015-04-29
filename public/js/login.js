@@ -51,9 +51,7 @@ $(function() {
 							               console.log("Parse login failed.!!");
 							        }
 							     });
-
-
-		                      
+                   
             },
             render: function(){
                 this.$el.html(this.template());

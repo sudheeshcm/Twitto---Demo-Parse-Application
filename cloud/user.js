@@ -25,6 +25,7 @@ module.exports = function(){
     user.set('username', username);
     user.set('password', password);
     user.set('email', email);
+    user.set('search_name', username.toLowerCase());
     
     user.signUp().then(function(user) {
       res.redirect('/login');
@@ -192,12 +193,11 @@ app.get('/search/:key', function(req, res) {
         
         var User = Parse.Object.extend("User");                    
         var query = new Parse.Query(User);
-        query.startsWith("username", keyword);
+        query.startsWith("search_name", keyword.toLowerCase());
         query.ascending("username");
         query.find({
                       success: function(results) {
                             alert("Successfully retrieved " + results.length + " Users.");
-                                
                             console.log("User Results: "+ results);
                             for (var i = 0; i < results.length; i++) { 
                                   var object = results[i];

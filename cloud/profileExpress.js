@@ -161,6 +161,7 @@ module.exports = function(){
         user.set('fullname', fullname);
         user.set('email', email);
         user.set('about', about);
+        user.set('search_name', username.toLowerCase() +" "+ fullname.toLowerCase());
 
         user.save(null, {
                         success: function(user) {
