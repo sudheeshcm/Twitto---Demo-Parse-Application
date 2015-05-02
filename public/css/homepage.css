@@ -222,9 +222,10 @@ text-align: center;
 }
 
 .tweetpadding {
-text-align: center;
+text-align: left;
 padding-left: 176px;
 display: inline-block;
+
 }
 
 .userdetails-message-padding {
@@ -240,12 +241,12 @@ display: inline-block;
     margin: 2px;  
 }
 
-.PostedTweets {
-padding-top: 150px;
+#PostedTweets {
+/*padding-top: 150px;
 text-align: right;
 padding-right: 190px;
 color: #0066CC;
-}
+*/}
 
 .friendsName {
     padding: 17px;

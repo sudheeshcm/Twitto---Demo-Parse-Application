@@ -34,26 +34,23 @@
 		        		<p class="lead blog-description" id="page-subheading"></p>
 		      	  </div>
 		  </div>
-
-		<form action="/t/tweet" method="post" id="tweet">
-			<div id="twitto-tweet" class="tweetpadding">
-				<p>
-					<h4>
-						Post your Twitto-Tweet..!!	
-					</h4>
-				</p>
-				<input type="hidden" id="loggedUser" name="loggedUser" value="" readonly>
-				<textarea name="tweetMessage" rows="4" cols="99" autofocus="" placeholder="Write your post here."></textarea><br>
-				<button id="tweet-button" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
-			</div>  
-		</form> 
-		<br>
-		
-		<div class="container">	
-			<div class="row">
-	          <div class="col-sm-8 blog-main">
-					<div>
-					  <h4>Recent Twitto Users</h4>
+		<span>
+			<form action="/t/tweet" method="post" id="tweet">
+				<div id="twitto-tweet" class="tweetpadding">
+					<p>
+						<h4>
+							Post your Twitto-Tweet..!!	
+						</h4>
+					</p>
+					<input type="hidden" id="loggedUser" name="loggedUser" value="" readonly>
+					<textarea name="tweetMessage" rows="4" cols="60" autofocus="" placeholder="Write your post here."></textarea><br>
+					<button id="tweet-button" class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px; margin-left: 525px; margin-top: -70px;">Post</button>
+					<br><br><br>
+				</div>  
+			</form> 
+		</span>
+		<span style="float: right; margin-top: -110px; width: 320px;">
+			<h4>Recent Twitto Users</h4>
 						  <div id="homepage">
 								  <div id="userslist"> 
 									    <div class="col-sm-8 blog-main">
@@ -62,16 +59,23 @@
 										</div>
 								  </div>	
 						  </div>
+		</span>	
+		<br>
+		
+		<div class="container">	
+			<div class="row">
+	          <div class="col-sm-8 blog-main">
+					<div>
+					  
 					</div>
 			   </div><!-- /.blog-main -->
 
 
-				<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
+			<!-- 	<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
 					<span class="about-sidebar-module about-sidebar-module-inset">	      
 	          		    		<div id="user-infoHead">Click on Username to view his page.</div>
 	          		    		<div id="user-info" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
-										<!--<h2  class="about-sidebar-module">User Details..!!</h2>-->
-								    	<p id="userbody" class="about-sidebar-module">
+										<p id="userbody" class="about-sidebar-module">
 								    		<table>
 								    		
 								    		</table>
@@ -83,11 +87,11 @@
 									<p id="friendsList" class="about-sidebar-module"></p>
 								</div>
 					</span>
-				</div><!-- /.blog-sidebar -->
+				</div> -->
 
-				<div id="PostedTweets" style="padding-top: 450px; color: #0066CC;">
-					<h2 style="font-family:verdana">Recent Tweets</h2>
-					<p id="tweetMessageHtml" style="border: 7px inset rgb(400, 400, 500); display:block; width:85%; background-color: rgb(236, 240, 237);">
+				<div id="PostedTweets" style="color: #0066CC;">
+					<h2 style="font-family:verdana; float: left; margin-top: -13px;">Recent Tweets</h2><br>
+					<p id="tweetMessageHtml" style="border: 2px inset rgb(400, 400, 500); display:block; width:80%; background-color: rgba(12, 6, 249, 0.03); border-radius: 28px;">
 						
 					</p>
 				</div>
