@@ -388,3 +388,10 @@ color: #0066CC;
   .tfclear{
     clear:both;
   }
+
+  #cover {
+    background: url("Images/ajax-loader.gif") no-repeat scroll center center #FFF;
+    position: absolute;
+    height: 30%;
+    width: 100%;
+  }

@@ -20,13 +20,14 @@
             			  </nav>
               </div>
         </div>
-        <div id="cover"></div> 
+    <div id="cover"></div>  
         <div class="blog-header">
             <h1 class="blog-title" align="center" id="AdminHeadder">Twitto</h1>
             <p class="lead blog-description" align="center" id="adminsubheadder">Try out our new social page</p>
         </div>
-	     
+	
         <div class="main-container" align="center"></div>
+  
   </div>  
  
   <div align="center" class="secondpart">

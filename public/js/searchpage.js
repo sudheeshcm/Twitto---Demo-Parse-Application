@@ -2,6 +2,10 @@ var skipCount = 0;
 var keyword = localStorage.searchKeyword;
 var html = '';
 
+$(window).load(function(){
+    $('#cover').fadeOut(1200);
+})
+
 var Alert = function(msg){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";

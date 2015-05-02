@@ -15,7 +15,7 @@ module.exports = function(){
     }
     else{
       console.log("No session found..!!");
-      res.render('login');
+      res.redirect('/login');
     }
   });
 
@@ -35,7 +35,7 @@ module.exports = function(){
      }
      else{
       console.log("No session found..!!");
-      res.render('login');
+      res.redirect('/login');
     }
   });
 

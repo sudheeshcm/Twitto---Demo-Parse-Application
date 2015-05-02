@@ -1,3 +1,7 @@
+$(window).load(function(){
+    $('#cover').fadeOut(1200);
+})
+
 var Alert = function(msg){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
@@ -115,7 +119,7 @@ $(function() {
     document.getElementById("user-info").style.visibility = "hidden";
     document.getElementById("user-infoHead").style.visibility = "hidden";
     document.getElementById("HisFriends").style.visibility = "hidden";
-    document.getElementById("Page-heading").innerHTML = 'Hi '+localStorage.loggedusername + ', Welcome to Twitto';
+    document.getElementById("Page-heading").innerHTML = 'Hi '+localStorage.loggedusername + ',';
     document.getElementById("loggedUser").value = localStorage.loggedusername;
     populateUsers();
     populateTweets();

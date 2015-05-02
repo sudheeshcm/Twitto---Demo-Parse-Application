@@ -22,6 +22,8 @@
 	        </nav>
 	      </div>
 	    </div>
+
+	<div id="cover"></div>  
 	    <div id="tfnewsearch">
 		      	  <input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton" onclick="userSearch();">
 		</div>
@@ -47,53 +49,53 @@
 		</form> 
 		<br>
 		
-	<div class="container">	
-		<div class="row">
-          <div class="col-sm-8 blog-main">
-				<div>
-				  <h4>Recent Twitto Users</h4>
-					  <div id="homepage">
-							  <div id="userslist"> 
-								    <div class="col-sm-8 blog-main">
-							    	    <div class="main-container" id="main-container"></div>   
-											  
-									</div>
-							  </div>	
-					  </div>
+		<div class="container">	
+			<div class="row">
+	          <div class="col-sm-8 blog-main">
+					<div>
+					  <h4>Recent Twitto Users</h4>
+						  <div id="homepage">
+								  <div id="userslist"> 
+									    <div class="col-sm-8 blog-main">
+								    	    <div class="main-container" id="main-container"></div>   
+												  
+										</div>
+								  </div>	
+						  </div>
+					</div>
+			   </div><!-- /.blog-main -->
+
+
+				<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
+					<span class="about-sidebar-module about-sidebar-module-inset">	      
+	          		    		<div id="user-infoHead">Click on Username to view his page.</div>
+	          		    		<div id="user-info" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
+										<!--<h2  class="about-sidebar-module">User Details..!!</h2>-->
+								    	<p id="userbody" class="about-sidebar-module">
+								    		<table>
+								    		
+								    		</table>
+								    	</p>
+								</div>
+								<br><br>    	
+						    	<div id="HisFriends" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
+									<h4  border="1px" class="about-sidebar-module"><span id="clickedUserFriendsHeadder"></h4>
+									<p id="friendsList" class="about-sidebar-module"></p>
+								</div>
+					</span>
+				</div><!-- /.blog-sidebar -->
+
+				<div id="PostedTweets" style="padding-top: 450px; color: #0066CC;">
+					<h2 style="font-family:verdana">Recent Tweets</h2>
+					<p id="tweetMessageHtml" style="border: 7px inset rgb(400, 400, 500); display:block; width:85%; background-color: rgb(236, 240, 237);">
+						
+					</p>
 				</div>
-		   </div><!-- /.blog-main -->
 
 
-			<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
-				<span class="about-sidebar-module about-sidebar-module-inset">	      
-          		    		<div id="user-infoHead">Click on Username to view his page.</div>
-          		    		<div id="user-info" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
-									<!--<h2  class="about-sidebar-module">User Details..!!</h2>-->
-							    	<p id="userbody" class="about-sidebar-module">
-							    		<table>
-							    		
-							    		</table>
-							    	</p>
-							</div>
-							<br><br>    	
-					    	<div id="HisFriends" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
-								<h4  border="1px" class="about-sidebar-module"><span id="clickedUserFriendsHeadder"></h4>
-								<p id="friendsList" class="about-sidebar-module"></p>
-							</div>
-				</span>
-			</div><!-- /.blog-sidebar -->
-
-			<div id="PostedTweets" style="padding-top: 450px; color: #0066CC;">
-				<h2 style="font-family:verdana">Recent Tweets</h2>
-				<p id="tweetMessageHtml" style="border: 7px inset rgb(400, 400, 500); display:block; width:85%; background-color: rgb(236, 240, 237);">
-					
-				</p>
-			</div>
-
-
-	    </div><!-- /.row -->
-	</div><!-- /.container -->
-
+		    </div><!-- /.row -->
+		</div><!-- /.container -->
+	</div>
 		
 		
 

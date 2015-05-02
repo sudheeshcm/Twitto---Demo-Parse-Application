@@ -1,3 +1,7 @@
+$(window).load(function(){
+    $('#cover').fadeOut(1200);
+})
+
 $(function() {
  
     var LoginView = Parse.View.extend({

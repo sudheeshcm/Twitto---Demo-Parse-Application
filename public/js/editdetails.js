@@ -1,3 +1,6 @@
+$(window).load(function(){
+    $('#cover').fadeOut(1200);
+})
 
 var Alert = function(){
                     localStorage.loggedusername = "";
