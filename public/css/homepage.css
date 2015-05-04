@@ -223,7 +223,7 @@ text-align: center;
 
 .tweetpadding {
 text-align: left;
-padding-left: 176px;
+padding-left: 32px;
 display: inline-block;
 
 }
@@ -396,3 +396,27 @@ color: #0066CC;
     height: 30%;
     width: 100%;
   }
+
+  #container
+{
+    height:400px;
+    width:400px;
+    position:relative;
+}
+
+#image
+{    
+    position:absolute;
+    left:0;
+    top:0;
+}
+#text
+{
+    z-index:100;
+    position:absolute;    
+    color:black;
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
+}

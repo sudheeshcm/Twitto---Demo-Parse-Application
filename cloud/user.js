@@ -345,6 +345,9 @@ app.get('/search/:skip/', function(req, res) {
                   if (pageStatus == "userdetails") {
                       res.redirect('/userdetails.html');     
                   }
+                  else if (pageStatus == "homepage") {
+                      res.redirect('/homepage');     
+                  }
                   else{
                       //Request made from Profile page.
                       res.redirect('/p/profile');        
@@ -379,18 +382,33 @@ app.get('/populateUsers', function(req, res) {
       query.find({
         success: function(results) {
           alert("Successfully retrieved " + results.length + " Users.");
-          
-          console.log("User Results: "+ results);
+          var followStatus = [];
+          var currentUserFriends = user.get('friends');
+          console.log("current user friends: "+currentUserFriends);
           for (var i = 0; i < results.length; i++) { 
             var object = results[i];
+
             console.log(object.id + ' - ' + object.get('username'));
+            var fetchedUsername = object.get('username');
+            for(var val in currentUserFriends)
+            { 
+                if (currentUserFriends[val] == fetchedUsername){
+                    followStatus[i] = "following";
+                    break;
+                }
+                else{
+                  followStatus[i] = "notfollowing";
+                }
+            }    
           }
           var data = {
               UsersNumber : results.length,
-              results : results
+              results : results,
+              followStatus : followStatus
           };
           console.log("Data: "+data);
           console.log(data.results[2]);
+          console.log("Follow Status: "+followStatus);
           res.json(data);
         },
         error: function(error) {

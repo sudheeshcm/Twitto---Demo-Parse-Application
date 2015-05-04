@@ -14,23 +14,27 @@
   </head>
   <body style="background-color: #F0F6FF;">
 	    <div class="blog-masthead">
-	      <div class="container">
+	      <div class="container" style="width: 1230px;">
 	        <nav class="blog-nav">
 	          <a class="blog-nav-item" href="/homepage" id="loggeduser"></a>
 	          <a class="blog-nav-item" href="/p/profile">Profile</a>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" onclick='Alert("You have logged out..!!");'>Log out</a>
+		      <span style="float: right; padding: 4px; padding-right: 100px;">	  
+		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
+		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
+		      </span>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="margin-right: -395px;" onclick='Alert("You have logged out..!!");'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
 
 	<div id="cover"></div>  
-	    <div id="tfnewsearch">
+	 <!--   <div id="tfnewsearch">
 		      	  <input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton" onclick="userSearch();">
-		</div>
+		</div> -->
 
-		  <div class="container" style="margin-top: 40px;">
+		  <div class="container" style="margin-top: 40px; width: 1230px;">
 			      <div class="blog-header">
-			      		<h1  id="Page-heading" style="color:#336699;text-align:left"></h1>
+			      		<h1  id="Page-heading" style="color:#336699;text-align:left; margin-left: -15px;"></h1>
 		        		<p class="lead blog-description" id="page-subheading"></p>
 		      	  </div>
 		  </div>
@@ -44,13 +48,13 @@
 					</p>
 					<input type="hidden" id="loggedUser" name="loggedUser" value="" readonly>
 					<textarea name="tweetMessage" rows="4" cols="60" autofocus="" placeholder="Write your post here."></textarea><br>
-					<button id="tweet-button" class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px; margin-left: 525px; margin-top: -70px;">Post</button>
+					<button id="tweet-button" class="btn btn-lg btn-primary btn-block" type="submit" style="width: 70px; height: 40px; margin-left: 525px; margin-top: -70px;">Post</button>
 					<br><br><br>
 				</div>  
 			</form> 
 		</span>
-		<span style="float: right; margin-top: -110px; width: 320px;">
-			<h4>Recent Twitto Users</h4>
+		<span style="float: right; margin-top: -110px; width: 485px; margin-right: -140px;">
+			<h4>&nbsp;&nbsp;&nbsp;Recent Twitto Users</h4>
 						  <div id="homepage">
 								  <div id="userslist"> 
 									    <div class="col-sm-8 blog-main">
@@ -62,15 +66,9 @@
 		</span>	
 		<br>
 		
-		<div class="container">	
+		<div class="container" style="width: 1230px;">	
 			<div class="row">
-	          <div class="col-sm-8 blog-main">
-					<div>
-					  
-					</div>
-			   </div><!-- /.blog-main -->
-
-
+	          
 			<!-- 	<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
 					<span class="about-sidebar-module about-sidebar-module-inset">	      
 	          		    		<div id="user-infoHead">Click on Username to view his page.</div>
@@ -91,18 +89,16 @@
 
 				<div id="PostedTweets" style="color: #0066CC;">
 					<h2 style="font-family:verdana; float: left; margin-top: -13px;">Recent Tweets</h2><br>
-					<p id="tweetMessageHtml" style="border: 2px inset rgb(400, 400, 500); display:block; width:80%; background-color: rgba(12, 6, 249, 0.03); border-radius: 28px;">
+					<p id="tweetMessageHtml" style="border: 2px inset rgb(400, 400, 500); display:block; width:70%; background-color: rgba(12, 6, 249, 0.03); border-radius: 28px;">
 						
 					</p>
+
 				</div>
 
 
 		    </div><!-- /.row -->
 		</div><!-- /.container -->
-	</div>
 		
-		
-
 		<div align="center" class="endpart">
 		      <p>Page built by on 7th April 2015<br>
 		        <a href="#">Back to top</a>

@@ -3,7 +3,6 @@ $(window).load(function(){
 })
 
 var Alert = function(){
-        console.log("ammm loged in");
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
@@ -65,7 +64,7 @@ $(function() {
                     var idAndUser = '"'+data.results[i].objectId+'","'+data.results[i].username+'"';
                     var onClickAction = 'friendRedirect('+idAndUser+');';
                     var onUnfollowAction = 'unFollow('+idAndUser+')';
-                    html += '<span><a href="javascript:void(0)" onclick='+onClickAction+'> @ '+data.results[i].username+' </a></span><span style="float: right; margin-right; 100px"><button id="unfriend-button" class="btn btn-lg btn-primary" type="submit" onclick='+onUnfollowAction+'>Unfriend</button></span><br><div>&nbsp;&nbsp;'+data.results[i].email+'</div>';
+                    html += '<span><a href="javascript:void(0)" onclick='+onClickAction+'> @ '+data.results[i].username+' </a></span><span style="float: right; margin-right; 100px"><button id="unfriend-button" class="btn btn-lg btn-primary" type="submit" onclick='+onUnfollowAction+'>Unfollow</button></span><br><div>&nbsp;&nbsp;'+data.results[i].email+'</div>';
                 }
                 if(data.FriendsNumber == 0){
                     html += '<h5> You does not have any friends..!</h5>';

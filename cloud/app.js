@@ -23,6 +23,8 @@ app.use(parseExpressCookieSession({
   }
 }));
 
+var underscore = require('underscore');
+
 // Homepage endpoint
 app.get('/', function(req, res) {
   // Get the latest images to show

@@ -26,6 +26,22 @@ var userSearch = function(){
     window.location.assign('/searchpage');
 }
 
+var unFollow = function(id, clickedUsername){
+                    localStorage.clickedUserId = id;
+                    localStorage.clickedUser = clickedUsername;
+                    console.log("Homepage - unFollow Action Called, User Clicked: "+clickedUsername+", ID: "+id);
+                    $.post( "/follow", { SelectedUserId: localStorage.clickedUserId, ClickedUserName: localStorage.clickedUser, loggedUserId: localStorage.loggedUserId, followStatus: "following", pageStatus: "homepage" } );
+                    window.location.assign('/homepage');
+};
+
+var follow = function(id, clickedUsername){
+                    localStorage.clickedUserId = id;
+                    localStorage.clickedUser = clickedUsername;
+                    console.log("Homepage - Follow Action Called, User Clicked: "+clickedUsername+", ID: "+id);
+                    $.post( "/follow", { SelectedUserId: localStorage.clickedUserId, ClickedUserName: localStorage.clickedUser, loggedUserId: localStorage.loggedUserId, followStatus: "notfollowing", pageStatus: "homepage" } );
+                    window.location.assign('/homepage');
+};
+
 //Obsolute - Function no more called. Earlier it was used to display abstract user details on the home page.
 var populateUserInfo = function(id, username) {
                                 // Empty content string
@@ -90,7 +106,19 @@ $(function() {
                     var newDateTimeFormat = moment(timeStr).calendar();
                     var onClickAction = 'friendRedirect('+idAndUser+');';
                     var mouseOverAbout = 'About '+data.results[i].username+': '+data.results[i].about;
-                    html += '<a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
+                    var followAction = '';
+                    var followButton = '';
+                    if (data.followStatus[i] == "following") {
+                       followAction = 'unFollow('+idAndUser+');';
+                       followButton = "Unfollow";
+                    }
+                    else{
+                        followAction = 'follow('+idAndUser+');';   
+                        followButton = "Follow";
+                    }
+
+                    html += '<span><a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a></span><span>&nbsp;&nbsp;&nbsp;<button id="unfriend-button" class="btn btn-lg btn-block" type="submit" onclick='+followAction+' style="width: 75px; height: 35px; vertical-align: middle; text-indent: -15px; float: right;">'+followButton+'</button></span><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
+                    
                     
                 }
                 if(data.UsersNumber == 0){
