@@ -2,14 +2,13 @@ $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
 
-var Alert = function(msg){
+var logout = function(){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
                     localStorage.clickedUser = "";
                     localStorage.searchKeyword = '';
                     console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
-                    alert(msg);
             }
 
 var friendRedirect = function(id, username){
@@ -70,7 +69,7 @@ $(function() {
                         followButton = "Follow";
                     }
 
-                    html += '<span><a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a></span><span>&nbsp;<button id="unfriend-button" class="btn btn-lg btn-block" type="submit" onclick='+followAction+' style="width: 75px; height: 35px; vertical-align: middle; text-indent: -15px;">'+followButton+'</button></span><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
+                    html += '<span>&nbsp;<button id="unfriend-button" class="btn btn-lg btn-block" type="submit" onclick='+followAction+' style="width: 65px; height: 25px; font-size: 14px; padding: 0px; float: right; margin-right: 90px;">'+followButton+'</button></span><span><a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a></span><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
                     
                     
                 }

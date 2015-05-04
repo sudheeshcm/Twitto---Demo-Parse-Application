@@ -142,7 +142,7 @@ app.post('/loginSession', function(req, res) {
       },
       error: function(error) {
         // Show the error message somewhere
-        alert("Password reset Error: " + error.code + " " + error.message);
+        console.log("Password reset Error: " + error.code + " " + error.message);
         
                 res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Password reset not successfull, '+ error.message + '<br><a href="'+redirectLink+'">Back to '+redirectLinkName+'</a></h3></body>');
       }
@@ -152,7 +152,7 @@ app.post('/loginSession', function(req, res) {
 
 // Renders homepage
   app.get('/homepage', function(req, res) {
-    
+  
     var user = Parse.User.current();
     console.log(user);
     if(user != null){
@@ -203,23 +203,16 @@ app.get('/search/:skip/:key', function(req, res) {
         mainQuery.skip(skip);
         mainQuery.find({
                       success: function(results) {
-                            alert("Successfully retrieved " + results.length + " Users.");
+                            console.log("Successfully retrieved " + results.length + " Users.");
                                 
-                            console.log("User Results: "+ results);
-                            for (var i = 0; i < results.length; i++) { 
-                                  var object = results[i];
-                                  console.log(object.id + ' - ' + object.get('username'));
-                            }
                             var data = {
                                     UsersNumber : results.length,
                                     results : results
                             };
-                            console.log("Data: "+data);
-                            console.log(data.results[2]);
                             res.json(data);
                       },
                       error: function(error) {
-                                alert("Error: " + error.code + " " + error.message);
+                                console.log("Error: " + error.code + " " + error.message);
                       }
         });      
   });
@@ -236,23 +229,16 @@ app.get('/search/:skip/', function(req, res) {
         query.ascending("username");
         query.find({
                       success: function(results) {
-                            alert("Successfully retrieved " + results.length + " Users.");
+                            console.log("Successfully retrieved " + results.length + " Users.");
                                 
-                            console.log("User Results: "+ results);
-                            for (var i = 0; i < results.length; i++) { 
-                                  var object = results[i];
-                                  console.log(object.id + ' - ' + object.get('username'));
-                            }
                             var data = {
                                     UsersNumber : results.length,
                                     results : results
                             };
-                            console.log("Data: "+data);
-                            console.log(data.results[2]);
                             res.json(data);
                       },
                       error: function(error) {
-                                alert("Error: " + error.code + " " + error.message);
+                                console.log("Error: " + error.code + " " + error.message);
                       }
         });      
   });
@@ -365,15 +351,10 @@ app.get('/search/:skip/', function(req, res) {
 // Populate recent users on the homepage
 app.get('/populateUsers', function(req, res) {
       
-       var user = Parse.User.current();
-       var currentUsername = user.get('username');
-       console.log("Current Username: "+ currentUsername);
-      /*var TweetUserList = user.get('friends');
-            console.log("TweetUserList: "+TweetUserList);
-            TweetUserList.push(user.get('username'));
-     // TweetUserList += ","+user.get('username');
-      console.log("TweetUserList after adding CurrentUser: "+TweetUserList);
-      */ 
+      var user = Parse.User.current();
+      var currentUsername = user.get('username');
+      console.log("Current Username: "+ currentUsername);
+
       var User = Parse.Object.extend("User");
       var query = new Parse.Query(User);
       query.limit(5);
@@ -381,11 +362,11 @@ app.get('/populateUsers', function(req, res) {
       query.notEqualTo("username", currentUsername);
       query.find({
         success: function(results) {
-          alert("Successfully retrieved " + results.length + " Users.");
+          console.log("Successfully retrieved " + results.length + " Users.");
           var followStatus = [];
           var currentUserFriends = user.get('friends');
           console.log("current user friends: "+currentUserFriends);
-          for (var i = 0; i < results.length; i++) { 
+          for (var i in results) { 
             var object = results[i];
 
             console.log(object.id + ' - ' + object.get('username'));
@@ -406,13 +387,11 @@ app.get('/populateUsers', function(req, res) {
               results : results,
               followStatus : followStatus
           };
-          console.log("Data: "+data);
-          console.log(data.results[2]);
           console.log("Follow Status: "+followStatus);
           res.json(data);
         },
         error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
+          console.log("Error: " + error.code + " " + error.message);
         }
     });
   });
@@ -440,28 +419,21 @@ app.get('/populateFriends/:id', function(req, res) {
                 query.containedIn("username", clickedUsersFriends);
                 query.find({
                   success: function(results) {
-                    alert("Successfully retrieved " + results.length + " Friends.");
+                    console.log("Successfully retrieved " + results.length + " Friends.");
                     
-                    console.log("Friends Results: "+ results);
-                    for (var i = 0; i < results.length; i++) { 
-                      var object = results[i];
-                      console.log(object.id + ' - ' + object.get('username'));
-                    }
                     var data = {
                         FriendsNumber : results.length,
                         results : results
                     };
-                    console.log("Data: "+data);
-                    console.log(data.results[2]);
                     res.json(data);
                   },
                   error: function(error) {
-                    alert("Error: " + error.code + " " + error.message);
+                    console.log("Error: " + error.code + " " + error.message);
                   }
               });
         },
         error: function(error) {
-          alert("Clicked user cannot be fetched -- Error: " + error.code + " " + error.message);
+          console.log("Clicked user cannot be fetched -- Error: " + error.code + " " + error.message);
         } 
     });         
   });

@@ -2,13 +2,14 @@ $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
 
-var Alert = function(){
+var logout = function(){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
                     localStorage.clickedUser = "";
-                    console.log("Local Storage attributes: "+localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
-};
+                    localStorage.searchKeyword = '';
+                    console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
+            }
 
 var button1 = document.getElementById('resetPassBtn'); // Assumes element with id='button'
 

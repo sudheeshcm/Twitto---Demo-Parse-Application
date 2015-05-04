@@ -34,7 +34,7 @@ $(function() {
 							       	  	document.getElementById("Username").value = '';
 							       	  	document.getElementById("Password").value = '';
 							       	  	document.getElementById("info-error").style.color = "red";
-							       	  	document.getElementById("info-error").innerHTML = data.error.message;
+							       	  	document.getElementById("info-error").innerHTML = "Invalid Username or Password.";
 							       	  }
 							       	  else
 							       	  {

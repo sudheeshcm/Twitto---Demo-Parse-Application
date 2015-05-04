@@ -2,15 +2,14 @@ $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
 
-var Alert = function(){
+var logout = function(){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
                     localStorage.clickedUser = "";
                     localStorage.searchKeyword = '';
-                    console.log("Local Storage attributes: "+localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
-                   // alert(msg);
-};
+                    console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
+            }
 
 var friendRedirect = function(id, username){
                     localStorage.clickedUserId = id;

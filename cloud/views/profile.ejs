@@ -18,11 +18,11 @@
 	      <div class="container">
 	        <nav class="blog-nav">
 	          <a class="blog-nav-item" href="/homepage" id="loggeduser"></a>
-	          <span style="float: center; padding: 4px; padding-left: 425px;">	  
+	          <span style="float: center; padding: 4px; padding-left: 385px;">	  
 		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
 		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="/css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
 		      </span>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="padding-right: 85px; margin-right: 0px;" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="padding-right: 85px; margin-right: 0px;" onclick='logout();'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -58,16 +58,16 @@
     
 		    <div class="container" style="display: inline-block; padding-left: 175px; width: 87%;">	
 				<div class="row">
-		          <div class="col-sm-8 blog-main">
+		          <p class="col-sm-8 blog-main">
 					    <h3 style="font-family:verdana; text-align: left;"><br><br>Pesonal messages for you,</h3>
-					    <div id="personal-messages" style="display:block; width:145%; background-color: rgb(236, 240, 237); " class="ScrollStyle"></div>
-  				  </div>  
-
-  				  <div id="PostedTweets" style="padding-top: 350px; color: #0066CC;padding-top: 400px;">
-						<h2 style="font-family:verdana; text-align: left;">Tweets by You</h2>
+					    <div id="personal-messages" style="display:block; width:94%; background-color: rgb(236, 240, 237); " class="ScrollStyle"></div>
+  				  </p>  
+  				  <br><br>
+  				  <p id="PostedTweets" style="color: #0066CC;">
+						<h2 style="font-family:verdana; text-align: left;">Your Tweets,</h2>
 						<p id="tweetMessageHtml" style="display:block; width:94%; background-color: rgb(236, 240, 237);" class="ScrollStyle">
 						</p>
-				  </div>
+				  </p>
 
 				</div><!-- /.row -->
 		    </div>

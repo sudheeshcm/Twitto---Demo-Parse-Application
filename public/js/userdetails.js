@@ -2,14 +2,14 @@ $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
 
-var Alert = function(msg){
+var logout = function(){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
                     localStorage.clickedUser = "";
+                    localStorage.searchKeyword = '';
                     console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
-                    alert(msg);
-}
+            }
                 
 var friendRedirect = function(id, username){
                     localStorage.clickedUserId = id;
@@ -37,19 +37,20 @@ $(function() {
                 console.log(data.followStatus);
                 console.log("Full name: "+data.user.fullname+", User name: "+data.user.username);
                 if (data.user.fullname == undefined) {
-                    document.getElementById('AdminHeadder').innerHTML=data.user.username;    
+                    document.getElementById('AdminHeadder').innerHTML = data.user.username;    
                 }
                 else{
-                    document.getElementById('AdminHeadder').innerHTML=data.user.fullname;
+                    document.getElementById('AdminHeadder').innerHTML = data.user.fullname;
                 }
-                document.getElementById('adminsubheadder').innerHTML=data.user.email;
+                document.getElementById('adminsubheadder').innerHTML = data.user.email;
                 document.getElementById('userabout').innerHTML=data.user.about;
                 var timeStr = data.user.createdAt;
                 var newDateTimeFormat = moment(timeStr).calendar();
                 document.getElementById('selectedUserCtreatedAt').innerHTML='Joined Twitto @ '+newDateTimeFormat;
                 document.getElementById('UserDetails-ObjId').value= localStorage.clickedUserId;
                 document.getElementById('ClickedUser').value= localStorage.clickedUser;
-                document.getElementById('loggedUser-objId').value= localStorage.loggedUserId;
+                document.getElementById('loggedUser-objId').value = localStorage.loggedUserId;
+                document.getElementById('personalMessageHeadder').innerHTML = 'Personal Messages between You and ' + localStorage.clickedUser +',';
                 if(data.followStatus == "following")
                 {
                     document.getElementById('follow-unfollow').innerHTML= 'Unfollow';

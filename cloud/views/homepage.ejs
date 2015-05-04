@@ -22,7 +22,7 @@
 		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
 		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
 		      </span>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="margin-right: -360px;" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="margin-right: -360px;" onclick='logout();'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -47,13 +47,13 @@
 						</h4>
 					</p>
 					<input type="hidden" id="loggedUser" name="loggedUser" value="" readonly>
-					<textarea name="tweetMessage" rows="4" cols="60" autofocus="" placeholder="Write your post here."></textarea><br>
+					<textarea name="tweetMessage" rows="4" cols="60" autofocus="" required="" placeholder="Write your post here." style="border: 0px"></textarea><br>
 					<button id="tweet-button" class="btn btn-lg btn-primary btn-block" type="submit" style="width: 70px; height: 40px; margin-left: 525px; margin-top: -70px;">Post</button>
 					<br><br><br>
 				</div>  
 			</form> 
 		</span>
-		<span style="float: right; margin-top: -110px; width: 485px; margin-right: 0px;">
+		<span style="float: right; margin-top: -110px; width: 530px; margin-right: -40px;">
 			<h4>&nbsp;&nbsp;&nbsp;Recent Twitto Users</h4>
 						  <div id="homepage">
 								  <div id="userslist"> 

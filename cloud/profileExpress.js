@@ -52,23 +52,17 @@ module.exports = function(){
         query.containedIn("username", currentUsersFriends);
         query.find({
                       success: function(results) {
-                            alert("Successfully retrieved " + results.length + " Friends.");
+                            console.log("Successfully retrieved " + results.length + " Friends.");
                                 
-                            console.log("Friends Results: "+ results);
-                            for (var i = 0; i < results.length; i++) { 
-                                  var object = results[i];
-                                  console.log(object.id + ' - ' + object.get('username'));
-                            }
                             var data = {
                                     FriendsNumber : results.length,
                                     results : results
                             };
-                            console.log("Data: "+data);
-                            console.log(data.results[2]);
+    
                             res.json(data);
                       },
                       error: function(error) {
-                                alert("Error: " + error.code + " " + error.message);
+                                console.log("Error: " + error.code + " " + error.message);
                       }
         });      
   });
@@ -87,23 +81,17 @@ module.exports = function(){
       query.equalTo("username", user.attributes.username);
       query.find({
             success: function(results) {
-              alert("Successfully retrieved " + results.length + " Tweets.");
+              console.log("Successfully retrieved " + results.length + " Tweets.");
               
-              console.log("Tweet Results: "+ results);
-              for (var i = 0; i < results.length; i++) { 
-                var object = results[i];
-                console.log(object.id + ' - ' + object.get('tweetMessage'));
-              }
               var data = {
                   TweetsNumber : results.length,
                   results : results
               };
-              console.log("Data: "+data);
-              console.log(data.results[2]);
+              
               res.json(data);
             },
             error: function(error) {
-              alert("Error: " + error.code + " " + error.message);
+              console.log("Error: " + error.code + " " + error.message);
             }
       });
   });
@@ -121,23 +109,17 @@ module.exports = function(){
                 query1.descending("createdAt");
                 query1.find({
                       success: function(results) {
-                        alert("Successfully retrieved " + results.length + " Personal messages.");
+                        console.log("Successfully retrieved " + results.length + " Personal messages.");
                         
-                        console.log("Personal messages Results: "+ results);
-                        for (var i = 0; i < results.length; i++) { 
-                          var object = results[i];
-                          console.log(object.id + ' - ' + object.get('sentBy')+ ' - ' + object.get('sentTo'));
-                        }
                         var data = {
                             MessagesNumber : results.length,
                             results : results
                         };
-                        console.log("Data: "+data);
-                        console.log(data.results[2]);
+                        
                         res.json(data);
                       },
                       error: function(error) {
-                        alert("Error: " + error.code + " " + error.message);
+                        console.log("Error: " + error.code + " " + error.message);
                       }
               });
               

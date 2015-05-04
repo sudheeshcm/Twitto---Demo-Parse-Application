@@ -22,7 +22,7 @@
 		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
 		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="/css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
 		      </span>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="padding-right: 85px; margin-right: 0px;" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="padding-right: 85px; margin-right: 0px;" onclick='logout();'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -64,12 +64,12 @@
 					<div id="twitto-message" class="userdetails-message-padding" align="center">
 						<p>
 							<h4>
-								<br>Send personal message to this User.	
+								<br>Send a personal message.	
 							</h4>
 						</p>
 						<input type="hidden" id="messageSentBy" name="messageSentBy" value="" readonly>
 						<input type="hidden" id="messageSentTo" name="messageSentTo" value="" readonly>
-						<textarea name="personalMessage" rows="4" cols="96" autofocus=""  placeholder="Write your message here."></textarea><br>
+						<textarea name="personalMessage" rows="4" cols="96" autofocus=""  required="" placeholder="Write your message here."></textarea><br>
 						<button id="sendMessage-button" class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
 					</div>  
 		    </form> 
@@ -77,7 +77,7 @@
 		    <div class="container" style="padding-left:50px">	
 				<div class="row">
 		          <div class="col-sm-8 blog-main">
-					    <h3><br><br>Pesonal messages between you both,</h3>
+					    <br><br><h4 id="personalMessageHeadder"></h4>
 					    <div id="personal-messages" style="display:block; width:132%; background-color: rgb(236, 240, 237);"></div>
 					</div>  
 				</div><!-- /.row -->

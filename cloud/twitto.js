@@ -80,13 +80,8 @@ module.exports = function(){
       query.containedIn("username", TweetUserList);
       query.find({
         success: function(results) {
-          alert("Successfully retrieved " + results.length + " Tweets.");
+          console.log("Successfully retrieved " + results.length + " Tweets.");
           
-          console.log("Tweet Results: "+ results);
-          for (var i = 0; i < results.length; i++) { 
-            var object = results[i];
-            console.log(object.id + ' - ' + object.get('tweetMessage'));
-          }
           var data = {
               TweetsNumber : results.length,
               results : results
@@ -96,7 +91,7 @@ module.exports = function(){
           res.json(data);
         },
         error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
+          console.log("Error: " + error.code + " " + error.message);
         }
     });
   });
@@ -123,23 +118,17 @@ module.exports = function(){
                 mainQuery.descending("createdAt");
                 mainQuery.find({
                       success: function(results) {
-                        alert("Successfully retrieved " + results.length + " Personal messages.");
-                        
-                        console.log("Personal messages Results: "+ results);
-                        for (var i = 0; i < results.length; i++) { 
-                          var object = results[i];
-                          console.log(object.id + ' - ' + object.get('sentBy')+ ' - ' + object.get('sentTo'));
-                        }
+                        console.log("Successfully retrieved " + results.length + " Personal messages.");
+          
                         var data = {
                             MessagesNumber : results.length,
                             results : results
                         };
-                        console.log("Data: "+data);
-                        console.log(data.results[2]);
+                        
                         res.json(data);
                       },
                       error: function(error) {
-                        alert("Error: " + error.code + " " + error.message);
+                        console.log("Error: " + error.code + " " + error.message);
                       }
               });
               
