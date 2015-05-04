@@ -223,7 +223,7 @@ text-align: center;
 
 .tweetpadding {
 text-align: left;
-padding-left: 32px;
+padding-left: 145px;
 display: inline-block;
 
 }
@@ -419,4 +419,11 @@ color: #0066CC;
     font-weight:bold;
     left:150px;
     top:350px;
+}
+
+#homePageSearchSpan
+{
+  float: right; 
+  padding: 4px; 
+  padding-right: 170px;
 }

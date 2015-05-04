@@ -27,6 +27,13 @@ var unFollow = function(id, clickedUsername){
                     window.location.assign('/p/profile');
 };
 
+var userSearch = function(){
+    var keyword = document.getElementById("keyword").value;
+    console.log("User Search called, Keyword: "+keyword);
+    localStorage.searchKeyword = keyword;
+    window.location.assign('/searchpage');
+}
+
 
 $(function() {
     

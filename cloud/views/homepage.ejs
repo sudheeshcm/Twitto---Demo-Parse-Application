@@ -14,15 +14,15 @@
   </head>
   <body style="background-color: #F0F6FF;">
 	    <div class="blog-masthead">
-	      <div class="container" style="width: 1230px;">
+	      <div class="container" style="width: 1030px;">
 	        <nav class="blog-nav">
 	          <a class="blog-nav-item" href="/homepage" id="loggeduser"></a>
 	          <a class="blog-nav-item" href="/p/profile">Profile</a>
-		      <span style="float: right; padding: 4px; padding-right: 100px;">	  
+		      <span id="homePageSearchSpan">	  
 		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
 		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
 		      </span>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="margin-right: -395px;" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="margin-right: -360px;" onclick='Alert("You have logged out..!!");'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -32,7 +32,7 @@
 		      	  <input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton" onclick="userSearch();">
 		</div> -->
 
-		  <div class="container" style="margin-top: 40px; width: 1230px;">
+		  <div class="container" style="width: 1000px;">
 			      <div class="blog-header">
 			      		<h1  id="Page-heading" style="color:#336699;text-align:left; margin-left: -15px;"></h1>
 		        		<p class="lead blog-description" id="page-subheading"></p>
@@ -53,7 +53,7 @@
 				</div>  
 			</form> 
 		</span>
-		<span style="float: right; margin-top: -110px; width: 485px; margin-right: -140px;">
+		<span style="float: right; margin-top: -110px; width: 485px; margin-right: 0px;">
 			<h4>&nbsp;&nbsp;&nbsp;Recent Twitto Users</h4>
 						  <div id="homepage">
 								  <div id="userslist"> 
@@ -66,30 +66,13 @@
 		</span>	
 		<br>
 		
-		<div class="container" style="width: 1230px;">	
+		<div class="container" style="width: 1000px;">	
 			<div class="row">
 	          
-			<!-- 	<div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -115px;" id="sideBar">
-					<span class="about-sidebar-module about-sidebar-module-inset">	      
-	          		    		<div id="user-infoHead">Click on Username to view his page.</div>
-	          		    		<div id="user-info" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
-										<p id="userbody" class="about-sidebar-module">
-								    		<table>
-								    		
-								    		</table>
-								    	</p>
-								</div>
-								<br><br>    	
-						    	<div id="HisFriends" style="border: 7px inset rgb(400, 400, 500); display:inline-block; width:134%; padding:2px; background-color: #ECF0ED;">
-									<h4  border="1px" class="about-sidebar-module"><span id="clickedUserFriendsHeadder"></h4>
-									<p id="friendsList" class="about-sidebar-module"></p>
-								</div>
-					</span>
-				</div> -->
 
 				<div id="PostedTweets" style="color: #0066CC;">
 					<h2 style="font-family:verdana; float: left; margin-top: -13px;">Recent Tweets</h2><br>
-					<p id="tweetMessageHtml" style="border: 2px inset rgb(400, 400, 500); display:block; width:70%; background-color: rgba(12, 6, 249, 0.03); border-radius: 28px;">
+					<p id="tweetMessageHtml" style="display:block; width:63%; background-color: rgba(12, 6, 249, 0.03);">
 						
 					</p>
 

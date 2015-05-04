@@ -18,7 +18,11 @@
 	        <nav class="blog-nav">
 	          <a class="blog-nav-item" href="/homepage" id="loggeduser"></a>
 	          <a class="blog-nav-item" href="/p/profile">Profile</a>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <span style="float: center; padding: 4px; padding-left: 360px;">	  
+		      		<input type="text" class="tftextinput" id="keyword" name="keyword" size="21" maxlength="120">
+		      		<input type="image" id="myimage" style="height: 35px; width: 40px; vertical-align: middle;" src="/css/Images/search-button.png" alt="Search" onclick="userSearch();"/>
+		      </span>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" style="padding-right: 85px; margin-right: 0px;" onclick='Alert("You have logged out..!!");'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -49,7 +53,7 @@
 		  <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="margin-left: -22px;">
           	<span class="about-sidebar-module about-sidebar-module-inset">	      
           		<span id="selectedUserCtreatedAt" style="color:#666699"></span>
-		    	<span style="border: 9px ridge rgb(400, 561, 942); display:inline-block; width:158%; padding:3px; background-color: #ECF1E7;"><h3 class="about-sidebar-module">About: </h3><span id="userabout" class="about-sidebar-module"></span></span>
+		    	<span style="display:inline-block; width:158%; padding:3px; background-color: #ECF1E7;"><h3 class="about-sidebar-module">About: </h3><span id="userabout" class="about-sidebar-module"></span></span>
 		   	</span>
 		  </div><!-- /.blog-sidebar -->
         </div><!-- /.row -->
@@ -74,7 +78,7 @@
 				<div class="row">
 		          <div class="col-sm-8 blog-main">
 					    <h3><br><br>Pesonal messages between you both,</h3>
-					    <div id="personal-messages" style="border: 2px inset rgb(400, 400, 500); display:block; width:132%; background-color: rgb(236, 240, 237); border-radius: 12px;"></div>
+					    <div id="personal-messages" style="display:block; width:132%; background-color: rgb(236, 240, 237);"></div>
 					</div>  
 				</div><!-- /.row -->
 		    </div>

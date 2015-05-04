@@ -41,54 +41,7 @@ var follow = function(id, clickedUsername){
                     $.post( "/follow", { SelectedUserId: localStorage.clickedUserId, ClickedUserName: localStorage.clickedUser, loggedUserId: localStorage.loggedUserId, followStatus: "notfollowing", pageStatus: "homepage" } );
                     window.location.assign('/homepage');
 };
-
-//Obsolute - Function no more called. Earlier it was used to display abstract user details on the home page.
-var populateUserInfo = function(id, username) {
-                                // Empty content string
-                                var tableContent = '';
-                                localStorage.clickedUserId = id;
-                                localStorage.clickedUser = username;
-                                friendRedirect(localStorage.clickedUserId, localStorage.clickedUser);  
-                                // jQuery AJAX call for JSON
-                                /*$.getJSON( '/userinfo/' + id, function( user ) {
-                                        console.log("Ajax call in HomePage correctly made..!!");
-                                        console.log(user);
-                                        console.log("Ajax call completed..!!");
-                                        tableContent += '<table><tr>';
-                                        tableContent += '<td><h4><a href="/userdetails.html" class="linkshowuser" rel="' + user.username + '">' + user.username + '</a></h4></td></tr>';
-                                        tableContent += '<tr><td>' + user.email + '</td></tr>';
-                                        tableContent += '<tr><td>' + user.about + '</td></tr>';
-                                        tableContent += '</table>';
-                                    
-                                    localStorage.clickedUser = user.username;    
-                                    console.log("User clicked, Name: "+ localStorage.clickedUser);
-                                    document.getElementById("sideBar").style.visibility = "visible";
-                                    document.getElementById("user-info").style.visibility = "visible";
-                                    document.getElementById("user-infoHead").style.visibility = "visible";
-                                    document.getElementById("HisFriends").style.visibility = "visible";
-                                    clickedUserFriendsHeadder
-                                    document.getElementById("clickedUserFriendsHeadder").innerHTML = localStorage.clickedUser+"'s Friends";
-                                    console.log(typeof user.friends);
-                                        var FriendList = "";
-                                        for(var val in user.friends)
-                                        {       
-                                                console.log(user.friends[val]);
-                                                FriendList += user.friends[val] +'<br>';
-                                                if (val == 5) {
-                                                    FriendList += 'and more..<br>';
-                                                    break;
-                                                };
-                                        }
-                                        if (FriendList == "") {
-                                            FriendList = "Currently have zero friends<br>";
-                                        };
-                                        document.getElementById("friendsList").innerHTML = FriendList;
-                                        console.log(FriendList);
-                                        FriendList = "";
-                                        // Inject the whole content string into our existing HTML table
-                                        $('#userbody').html(tableContent);
-                                });*/
-        };            
+            
 
 $(function() {
 
@@ -117,7 +70,7 @@ $(function() {
                         followButton = "Follow";
                     }
 
-                    html += '<span><a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a></span><span>&nbsp;&nbsp;&nbsp;<button id="unfriend-button" class="btn btn-lg btn-block" type="submit" onclick='+followAction+' style="width: 75px; height: 35px; vertical-align: middle; text-indent: -15px; float: right;">'+followButton+'</button></span><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
+                    html += '<span><a style="color:#336699;font-size:18px" href="javascript:void(0)" onclick='+onClickAction+' title="'+mouseOverAbout+'">@ '+data.results[i].username+'</a></span><span>&nbsp;<button id="unfriend-button" class="btn btn-lg btn-block" type="submit" onclick='+followAction+' style="width: 75px; height: 35px; vertical-align: middle; text-indent: -15px;">'+followButton+'</button></span><h5 style="font-family: monospace; font-size: initial; color: darkgray;">'+data.results[i].email+'</h5><h6 style="font-style: italic; font-family: serif; font-size: small;">> '+newDateTimeFormat+'</h6><br>';
                     
                     
                 }
