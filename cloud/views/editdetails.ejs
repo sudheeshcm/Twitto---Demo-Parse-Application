@@ -66,17 +66,21 @@
           		</form>
           		</div>
 
-          		<form action="/resetPass" method="post" id="user-resetPass">
+          	<!--	<form action="/resetLoggedUserPass" method="post" id="user-resetPass"> -->
           		<div id="popup">
 						<div id="content">
-							Please enter your email id to reset your password, 
-							<input type="email" name="email" placeholder="enter email id" style="width: 260px;" required="" autofocus=""/>
-							<button class="btn btn-primary" type="submit">Send request</button>
+								<div id="passResetMsg">Please enter your current and new Passwords,</div> 
+								<br>
+								New Password: <input type="password" name="newPassword" id="newPassword" placeholder="enter new Password" style="width: 175px; float: right; margin-right: 200px;" required="" autofocus=""/>
+								<br><br>
+								Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm new Password" style="width: 175px; float: right; margin-right: 200px;" required="" autofocus=""/><span id="ConfirmPassMsg"></span>
+								<br><br>
+								<input class="btn btn-primary" type="button" onclick='resetPassword();' value="Reset Password">
 							<br><br><br>
 							<input type="button" id="passResetcancel" class="btn btn-primary" value="Cancel" style="margin-left: 130px;">
 						 </div>   
 				</div>​
-			    </form>
+			  <!--  </form> -->
 	    	</div>
 	      </div><!-- /.blog-main -->
 		

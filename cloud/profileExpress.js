@@ -151,12 +151,36 @@ module.exports = function(){
                         },
                         error: function(user, error) {
                           console.log("User fields not updated, " + error.message);
-                          res.send('<h3 align="center">User edit not successfull, '+ error.message + '<br><a href="/p/edit">Back to User edit page</a></h3>');
+                          res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">User edit not successfull, '+ error.message + '<br><a href="/p/edit">Back to User edit page</a></h3></body>');
                         }    
         }); 
       
   });
 
+
+  app.post('/resetLoggedUserPass', function(req, res) {
+    var newPass = req.body.newPassword;
+    console.log("Logged User Password reset called.");
+    
+    var user = Parse.User.current();
+    console.log(user.attributes.username+", tried Password update.");
+    
+      user.set("password", newPass);
+      user.save(null, {
+                        success: function(user) {
+                          console.log(user.attributes.username+", Password updated.");
+                          res.json(user);
+
+                        },
+                        error: function(data, error) {
+                          console.log("Password not updated, " + error.message);
+                          res.error(error);
+                          //res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Password change not successfull, '+ error.message + '<br><a href="/p/edit">Back to User edit page</a></h3></body>');
+                        }
+      })
+     // }  
+                      
+  });
 
   return app;
 }();

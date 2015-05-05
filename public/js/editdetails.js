@@ -2,10 +2,13 @@ if(localStorage.loggedUserId == ""){
    window.location.assign('/login'); 
 };
 
+//Confirms before leaving the page
 window.onbeforeunload = function() { return "You work will be lost."; };
 
+
 var ignoreConfirmation = function() {
-        window.onbeforeunload = function() { };
+  //       Provides exception from page leave confirmation 
+           window.onbeforeunload = function() { };
 };
 
 $(window).load(function(){
@@ -21,22 +24,59 @@ var logout = function(){
                     console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
             }
 
-var button1 = document.getElementById('resetPassBtn'); // Assumes element with id='button'
+var resetPassword = function()
+{    
+                newPassword=$("#newPassword").val();
+                confirmPassword=$("#confirmPassword").val();
+                if(newPassword == "" )
+                {
+                    document.getElementById('passResetMsg').style.color='red';
+                    document.getElementById('passResetMsg').innerHTML="Enter a password.";
+                }
+                else if (newPassword != confirmPassword) {
+                    document.getElementById('passResetMsg').style.color='red';
+                    document.getElementById('passResetMsg').innerHTML="Confirm Password mismatch.";
+                }
+                else
+                {
 
-button1.onclick = function() {
+                    $.ajax({
+                            url: "/p/resetLoggedUserPass",
+                            type: "POST",
+                            data: {
+                                newPassword:newPassword
+                                },
+                            success: function (user) {
+                                  ignoreConfirmation();
+                                  window.location.assign("/logout");  
+                              },
+                              error: function (err) {
+                                if(err.message != null)
+                                {   
+                                document.getElementById('passResetMsg').style.color='red';
+                                document.getElementById('passResetMsg').innerHTML= err.message;
+                                }
+                              }
+                               
+                    });    
+                }    
+}
+
+
+var resetPassBtn = document.getElementById('resetPassBtn'); // Assumes element with id='button'
+
+resetPassBtn.onclick = function() {
     
         document.getElementById('userEditInfo').style.display = 'none';
         document.getElementById('popup').style.display = 'block';
     
 };
 
-var button2 = document.getElementById('passResetcancel'); // Assumes element with id='button'
+var passResetcancel = document.getElementById('passResetcancel'); // Assumes element with id='button'
 
-button2.onclick = function() {
-    
+passResetcancel.onclick = function() {
         document.getElementById('userEditInfo').style.display = 'block';
         document.getElementById('popup').style.display = 'none';
-
 };
 
 
@@ -61,7 +101,6 @@ $(function() {
                 };    
             });
     };
-
 
     document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';
     console.log("/p/edit details page loded");
