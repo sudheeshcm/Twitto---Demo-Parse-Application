@@ -2,6 +2,12 @@ if(localStorage.loggedUserId == ""){
    window.location.assign('/login'); 
 };
 
+window.onbeforeunload = function() { return "You work will be lost."; };
+
+var ignoreConfirmation = function() {
+        window.onbeforeunload = function() { };
+};
+
 $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
