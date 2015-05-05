@@ -18,7 +18,7 @@
 	        <nav class="blog-nav">
 	          <a class="blog-nav-item" href="/homepage" id="loggeduser"></a>
 	          <a class="blog-nav-item" href="/p/profile">Profile</a>
-	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" onclick='Alert("You have logged out..!!");'>Log out</a>
+	          <a class="twitto-nav-logoutitem" href="/logout" id="logout" onclick='logout();'>Log out</a>
 	        </nav>
 	      </div>
 	    </div>
@@ -35,7 +35,7 @@
 							<div class="row">
 					          <div class="col-sm-8 blog-main">
 								<div id="searchresults"></div>
-								<input type="submit" value="Load more" class="tfbutton" onclick="loadMore();" style="border-radius: 6px;">
+								<input type="submit" value="Load more" class="tfbutton" onclick="loadMore();" style="border-radius: 6px;" id="loadMoreBtn">
 							   </div><!-- /.blog-main -->
 						    </div><!-- /.row -->
 						</div><!-- /.container -->

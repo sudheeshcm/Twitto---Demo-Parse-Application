@@ -301,8 +301,7 @@ color: #0066CC;
   border-top-style: hidden;
   border: 0px groove;
   background-color: #DBDBDB;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 6px;
 }
 
 .popup

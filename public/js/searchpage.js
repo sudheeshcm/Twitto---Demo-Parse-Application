@@ -2,19 +2,22 @@ var skipCount = 0;
 var keyword = localStorage.searchKeyword;
 var html = '';
 
+if(localStorage.loggedUserId == ""){
+   window.location.assign('/login'); 
+};
+
 $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
 
-var Alert = function(msg){
+var logout = function(){
                     localStorage.loggedusername = "";
                     localStorage.loggedUserId = "";
                     localStorage.clickedUserId = "";
                     localStorage.clickedUser = "";
                     localStorage.searchKeyword = '';
                     console.log(localStorage.loggedusername + ", " + localStorage.loggedUserId + ", " + localStorage.clickedUserId);
-                    alert(msg);
-};
+            }
 
 var userSearch = function(){
     var keyword = document.getElementById("keyword").value;
@@ -41,7 +44,9 @@ var callSearch = function(skipCount, keyword){
                     //var onUnfollowAction = 'unFollow('+idAndUser+')';
                     html += '<span><a href="javascript:void(0)" onclick='+onClickAction+'> @ '+data.results[i].username+' </a></span><br><div>&nbsp;&nbsp;'+data.results[i].email+'</div><br>';
                 }
+                document.getElementById("loadMoreBtn").style.visibility = "visible";
                 if(data.UsersNumber == 0){
+                    document.getElementById("loadMoreBtn").style.visibility = "hidden";
                     html += '<h5> No results found..!</h5>';
                 }
                 document.getElementById("searchresults").innerHTML = html;

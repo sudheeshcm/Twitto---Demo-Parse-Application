@@ -1,3 +1,7 @@
+if(localStorage.loggedUserId == ""){
+   window.location.assign('/login'); 
+};
+
 $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
@@ -108,10 +112,6 @@ $(function() {
     console.log("clicked User ID: "+localStorage.clickedUserId);
     console.log("Local Storage:"+ localStorage);
     document.getElementById("loggeduser").innerHTML = localStorage.loggedusername + ' - Home';  
-    /*document.getElementById("sideBar").style.visibility = "hidden";
-    document.getElementById("user-info").style.visibility = "hidden";
-    document.getElementById("user-infoHead").style.visibility = "hidden";
-    document.getElementById("HisFriends").style.visibility = "hidden";*/
     document.getElementById("Page-heading").innerHTML = 'Hi '+localStorage.loggedusername + ',';
     document.getElementById("loggedUser").value = localStorage.loggedusername;
     populateUsers();

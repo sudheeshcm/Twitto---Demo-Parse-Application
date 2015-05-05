@@ -1,3 +1,7 @@
+if(localStorage.loggedUserId == ""){
+   window.location.assign('/login'); 
+};
+
 $(window).load(function(){
     $('#cover').fadeOut(1200);
 })

@@ -1,3 +1,7 @@
+if(localStorage.loggedUserId == ""){
+   window.location.assign('/login'); 
+};
+
 $(window).load(function(){
     $('#cover').fadeOut(1200);
 })
@@ -115,11 +119,6 @@ $(function() {
     console.log("Logged user ID: "+localStorage.loggedUserId);
     console.log("Logged user: "+localStorage.loggedusername);
     console.log("clicked User ID: "+localStorage.clickedUserId);
-
-    if(localStorage.loggedUserId == ""){
-                    alert("No user session found.!! Please log in.");
-                    window.location.assign('/login');
-    }
 
     document.getElementById('loggedUser-objId').value=localStorage.loggedUserId;
                 if(localStorage.clickedUserId == localStorage.loggedUserId){
