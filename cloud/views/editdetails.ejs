@@ -69,15 +69,15 @@
           	<!--	<form action="/resetLoggedUserPass" method="post" id="user-resetPass"> -->
           		<div id="popup">
 						<div id="content">
-								<div id="passResetMsg">Please enter your current and new Passwords,</div> 
+								<div id="passResetMsg"></div> 
 								<br>
 								New Password: <input type="password" name="newPassword" id="newPassword" placeholder="enter new Password" style="width: 175px; float: right; margin-right: 200px;" required="" autofocus=""/>
 								<br><br>
 								Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm new Password" style="width: 175px; float: right; margin-right: 200px;" required="" autofocus=""/><span id="ConfirmPassMsg"></span>
 								<br><br>
-								<input class="btn btn-primary" type="button" onclick='resetPassword();' value="Reset Password">
+								<input class="btn btn-primary" type="button" onclick='resetPassword();' style="margin-left: 50px;" value="Reset Password"> &nbsp;&nbsp;&nbsp; <input type="button" id="passResetcancel" class="btn btn-primary" value="Cancel">
 							<br><br><br>
-							<input type="button" id="passResetcancel" class="btn btn-primary" value="Cancel" style="margin-left: 130px;">
+							
 						 </div>   
 				</div>​
 			  <!--  </form> -->

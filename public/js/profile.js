@@ -53,7 +53,12 @@ $(function() {
                     document.getElementById('AdminHeadder').innerHTML=user.fullname;
                 }
                 document.getElementById('adminsubheadder').innerHTML=user.email;
-                document.getElementById('userabout').innerHTML=user.about;
+                if (user.about == undefined) {
+                    document.getElementById('userabout').innerHTML = "Profile incomplete. Please complete it.";
+                }
+                else{
+                    document.getElementById('userabout').innerHTML=user.about;
+                }
                 var timeStr = user.createdAt;
                 var newDateTimeFormat = moment(timeStr).calendar();
                 document.getElementById('selectedUserCtreatedAt').innerHTML='You joined Twitto @ '+newDateTimeFormat;
