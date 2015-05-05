@@ -1,72 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Twitto SignUp page</title>
- 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-   <link href="css/homepage.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Twitto SignUp page</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/homepage.css" rel="stylesheet">
   </head>
   <body>
   <div class="space">
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="blog-nav">
-          <a class="blog-nav-item" href="/login">Login</a>
-
-
-        </nav>
-      </div>
-    </div>
-
-    <div id="cover"></div>  
-    <div class="blog-header">
-        <h1 class="blog-title" align="center" id="AdminHeadder">Twitto</h1>
-        <p class="lead blog-description" align="center" id="adminsubheadder"></p>
-    </div>
-
-  <div class="main-container" align="center"></div>
-      <form class="form-signup" method="post" action="/signup">
-        <div align="center"> 
-          <H5>Please enter your details,</H5>
-          <br>
-          Username:  <input type="text" id="username" name="username" required="" autofocus="">
-          <br>
+        <div class="blog-masthead">
+            <div class="container">
+                  <nav class="blog-nav">
+                      <a class="blog-nav-item" href="/login">Login</a>
+                  </nav>
+            </div>
         </div>
-        <div align="center">
-          <br>
-          Password:   <input type="password" id="password" name="password" required="">
-          <br>
-        </div>
-        <div align="center">  
-          <br>
-          EMail ID:   <input type="email" id="email" name="email" required="">
-          <br>
-        </div>
-        <br>
 
-        <div align="center">
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>     
- </div><br> 
+        <div id="cover"></div>  
 
-  <footer class="blog-footer">
-      <p>Page built by on 7th April 2015<br>
-      
-        <a href="#">Back to top</a>
-      </p>
-  </footer>
+        <div class="blog-header">
+            <h1 class="blog-title" align="center" id="AdminHeadder">Twitto</h1>
+            <p class="lead blog-description" align="center" id="adminsubheadder"></p>
+        </div>
+
+        <div class="main-container" align="center"></div>
+            <form class="form-signin" method="post" action="/signup">
+                  <h4 class="form-signin-heading" id="info-error" align="center">Please sign up</h4>
+                  <input type="text" name="username" class="form-control" placeholder="Username" id="Username" required="" autofocus="">
+                  <input type="password" name="password" class="form-control" placeholder="Password" id="Password" required="">
+                  <input type="password" name="Confpassword" class="form-control" placeholder="Confirm Password" id="confPassword" required="">
+                  <input type="email" id="Email" class="form-control" placeholder="email" name="email" required="">
+                  <input class="btn btn-lg btn-primary btn-block" type="button" id="loginButton#Changed" onclick="signup();" value="Sign Up"><br>
+            </form>
+       </div><br> 
+
+       <footer class="blog-footer">
+            <p>Page built by on 7th April 2015<br>
+            
+              <a href="#">Back to top</a>
+            </p>
+       </footer>
       
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -29,13 +29,23 @@ module.exports = function(){
     user.set('search_name', username.toLowerCase());
     
     user.signUp().then(function(user) {
-      res.redirect('/login');
       console.log("User Created: " + user.attributes.username +", "+ user.attributes.email);
+      var data = { username : user.attributes.username,
+                      password : password,
+                      objectId : user.id
+                    };
+                    
+      console.log("Sign up successfull,ID: "+ user.id +", Username: "+ user.attributes.username);
+      res.json(data);
+
     }, function(error) {
-      // Show the error message and let the user try again
-      
       console.log("Signup not successfull, " + error.message);
-      res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Signup not successfull, '+ error.message + '<br><a href="/signup">Back to SignUp page</a></h3></body>');
+      var data = { username : "",
+                      password : "",
+                      objectId : "",
+                      error: error
+                    };
+      res.json(data);
     });
   });
 
