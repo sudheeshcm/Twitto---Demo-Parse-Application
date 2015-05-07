@@ -11,67 +11,56 @@
   </head>
   
   <body>
-  <div class="space">
-        <div class="blog-masthead">
-              <div class="container">
-                    <nav class="blog-nav">
-                      <a class="blog-nav-item" href="#About">About</a>
-            			  </nav>
+        <div class="space">
+              <div class="blog-masthead">
+                    <div class="container">
+                          <nav class="blog-nav">
+                            <a class="blog-nav-item" href="#About">About</a>
+                  			  </nav>
+                    </div>
               </div>
+              <div id="cover"></div> 
+              <div class="blog-header">
+                  <center><img src="css/Images/twitto-logo.jpg" alt="Twitto-logo" width="70" height="70"></center>
+                  <h1 class="blog-title" align="center" id="AdminHeadder">Twitto</h1>
+                  <p class="lead blog-description" align="center" id="adminsubheadder">Try out our new social page</p>
+              </div>
+      	     
+              <div class="main-container" align="center"></div>
+        </div>  
+       
+        <div align="center" class="secondpart">
+                  <h5 id="About">About</h5><br><br><br>
+                  <p>Twitto,<br>A new social page<br><em>Dev by $$$</em> <br>Kochi</p>        
         </div>
-        <div id="cover"></div> 
-        <div class="blog-header">
-            <center><img src="css/Images/twitto-logo.jpg" alt="Twitto-logo" width="70" height="70"></center>
-            <h1 class="blog-title" align="center" id="AdminHeadder">Twitto</h1>
-            <p class="lead blog-description" align="center" id="adminsubheadder">Try out our new social page</p>
-        </div>
-	     
-        <div class="main-container" align="center"></div>
-  </div>  
- 
-  <div align="center" class="secondpart">
-            <h5 id="About">About</h5><br><br><br>
-            <p>Twitto,<br>A new social page<br><em>Dev by $$$</em> <br>Kochi</p>        
-  </div>
 
-  <br>
-  <footer class="blog-footer">
-      <p>Page built by on 7th April 2015<br>
-        <a href="#">Back to top</a>
-      </p>
-  </footer>
+        <br>
+        <footer class="blog-footer">
+            <p>Page built by on 7th April 2015<br>
+              <a href="#">Back to top</a>
+            </p>
+        </footer>
 
-  <!--<div class="main-container">  -->
-  <script id="login-tpl" type="text/x-handlebars-template">
-      <form class="form-signin" action="/login" method="post" id="login" role="form">
-            <h4 class="form-signin-heading" id="info-error">Please sign in</h4>
-            <input type="text" name="username" class="form-control" placeholder="Username" id="Username" required="" autofocus="">
-            <input type="password" name="password" class="form-control" placeholder="Password" id="Password" required="">
-            <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginButton#Changed">Sign in</button><br>
-            <a href="/resetPassword" id="forgetPass"><h5 style="font-style:italic">Forgot Password</h5></a>
-      </form>
-      <br><br><h5>New to Twitto, Please sign up.. </h5>
-      <button class="btn btn-lg btn-block" id="signupButton" onclick="location.href='/signup';" style="width: 24%">Sign Up</button>    
-  </script>
-<!--</div>-->
-    
-    <script id="welcome-tpl" type="text/x-handlebars-template">
-    <a href="/homepage"><h2>Explore Twitto</h2></a>
-    <script>document.getElementById('AdminHeadder').innerHTML='Welcome, {{username}}!';
-    document.getElementById('adminsubheadder').innerHTML='';</script>
-    </script>  
-    
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
-    <!-- Parse.js -->
-    <script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
-    <!-- Handlebars.js -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-
-
+        <script id="login-tpl" type="text/x-handlebars-template">
+            <form class="form-signin" action="/login" method="post" id="login" role="form">
+                  <h4 class="form-signin-heading" id="info-error">Please sign in</h4>
+                  <input type="text" name="username" class="form-control" placeholder="Username" id="Username" required="" autofocus="">
+                  <input type="password" name="password" class="form-control" placeholder="Password" id="Password" required="">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginButton#Changed">Sign in</button><br>
+                  <a href="/resetPassword" id="forgetPass"><h5>Forgot Password</h5></a>
+            </form>
+            <br><br><h5>New to Twitto, Please sign up.. </h5>
+            <button class="btn btn-lg btn-block" id="signupButton" onclick="location.href='/signup';">Sign Up</button>    
+        </script>
+             
+          <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+          <script src="js/bootstrap.min.js"></script>
+          <script src="js/login.js"></script>
+          <!-- Parse.js -->
+          <script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+          <!-- Handlebars.js -->
+          <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
   </body>
 </html>

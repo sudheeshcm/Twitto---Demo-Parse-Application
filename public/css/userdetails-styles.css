@@ -1,0 +1,52 @@
+#searchSpan
+{
+	float: center; 
+	padding: 4px; 
+	padding-left: 360px;
+}
+
+#logout
+{
+	padding-right: 85px; 
+	margin-right: 0px;
+}
+
+.userdetails-headder
+{
+	padding-left:50px;
+}
+
+#followDetails
+{
+	width: 52%;
+}
+
+#userdetails-sidebar
+{
+	margin-left: -22px;
+}
+
+#selectedUserCtreatedAt
+{
+	color:#666699;
+}
+
+#userdetails-about
+{
+	display:inline-block; 
+	width:158%; 
+	padding:3px; 
+	background-color: #ECF1E7;
+}
+
+#sendMessage-button
+{
+	width: 15%;
+}
+
+#personal-messages
+{
+	display:block; 
+	width:132%; 
+	background-color: rgb(236, 240, 237);
+}

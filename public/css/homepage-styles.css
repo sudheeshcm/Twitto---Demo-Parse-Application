@@ -1,0 +1,69 @@
+/* Homepage Styles*/
+#homePageBlogNav
+{
+  width: 1030px;
+}
+
+#homePageSearchSpan
+{
+  float: right; 
+  padding: 4px; 
+  padding-right: 170px;
+}
+
+.homepageLogoutMrg
+{
+  margin-right: -360px;
+}
+
+#homePageHeadAndBody
+{
+  width: 1000px;
+}
+
+.homeHead
+{
+  color:#336699;
+  text-align:left; 
+  margin-left: -15px;
+}
+
+#tweet-button
+{
+  width: 65px; 
+  height: 30px; 
+  margin-left: 525px; 
+  margin-top: -70px;
+  padding: 0px;
+}
+
+#homeUsersSpan
+{
+  float: right; 
+  margin-top: -110px; 
+  width: 530px; 
+  margin-right: -40px;
+}
+
+#homeTweetMessage
+{
+  border: 0px;
+}
+
+#PostedTweets
+{
+  color: #0066CC;
+}
+
+#RecentTweetsheadder
+{
+  font-family:verdana; 
+  float: left;
+  margin-top: -13px;
+}
+
+#tweetMessageHtml
+{
+  display:block; width:63%; 
+  background-color: rgba(12, 6, 249, 0.03);
+}

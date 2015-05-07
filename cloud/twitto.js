@@ -12,21 +12,23 @@ module.exports = function(){
     var loggedUser = req.body.loggedUser;
     var tweetMessage = req.body.tweetMessage;
     console.log("Logged user: "+ loggedUser+", ID: "+ loggedUserId +", Tweet Message: "+ tweetMessage);
-        var Tweets = Parse.Object.extend("Tweets");
-        var tweets = new Tweets();
+        if (Parse.User.current() != null) {
+            var Tweets = Parse.Object.extend("Tweets");
+            var tweets = new Tweets();
 
-        tweets.set("username", loggedUser);
-        tweets.set("tweetMessage", tweetMessage);
-         
-        tweets.save(null, {
-          success: function(tweets) {
-            console.log('New object created with objectId: ' + tweets.id);
-          },
-          error: function(tweets, error) {
-            console.log('Failed to create new object, with error code: ' + error.message);
-          }
-        });
-        res.redirect('/homepage');                     
+            tweets.set("username", loggedUser);
+            tweets.set("tweetMessage", tweetMessage);
+             
+            tweets.save(null, {
+              success: function(tweets) {
+                console.log('New object created with objectId: ' + tweets.id);
+              },
+              error: function(tweets, error) {
+                console.log('Failed to create new object, with error code: ' + error.message);
+              }
+            });
+        };
+        res.redirect('/homepage');                       
   });
 
 
@@ -36,6 +38,7 @@ module.exports = function(){
     var messageSentTo = req.body.messageSentTo;
     var personalMessage = req.body.personalMessage;
     console.log("message Sent By: "+ messageSentBy+", message Sent To: "+ messageSentTo +", personal Message: "+ personalMessage);
+    if (Parse.User.current() != null) {    
         var PersonalMessages = Parse.Object.extend("PersonalMessages");
         var pmsg = new PersonalMessages();
 
@@ -54,7 +57,8 @@ module.exports = function(){
             console.log('Failed to create new object, with error code: ' + error.message);
           }
         });
-        res.redirect('/userdetails.html');                     
+    };    
+    res.redirect('/userdetails.html');                     
   });
 
   //Populates tweets on the home page. Will populate tweets from the logged user's friends and from himself.
@@ -107,15 +111,14 @@ module.exports = function(){
                 var query1 = new Parse.Query(PersonalMessages);
                 query1.equalTo("sentTo", selectedUser);
                 query1.equalTo("sentBy", currentUser.attributes.username);
-                query1.limit(7);
                 
                 var query2 = new Parse.Query(PersonalMessages);
                 query2.equalTo("sentTo", currentUser.attributes.username);
                 query2.equalTo("sentBy", selectedUser);
-                query2.limit(7);
 
                 var mainQuery = Parse.Query.or(query1, query2);
                 mainQuery.descending("createdAt");
+                query1.limit(10);
                 mainQuery.find({
                       success: function(results) {
                         console.log("Successfully retrieved " + results.length + " Personal messages.");

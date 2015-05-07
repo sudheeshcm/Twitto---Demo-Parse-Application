@@ -1,5 +1,4 @@
 // Provides endpoints for user signup and login
-
 module.exports = function(){
   var express = require('express');
   var app = express();
@@ -37,7 +36,6 @@ module.exports = function(){
                     
       console.log("Sign up successfull,ID: "+ user.id +", Username: "+ user.attributes.username);
       res.json(data);
-
     }, function(error) {
       console.log("Signup not successfull, " + error.message);
       var data = { username : "",
@@ -49,7 +47,7 @@ module.exports = function(){
     });
   });
 
-  // Render the login page
+// Render the login page
   app.get('/login', function(req, res) {
     res.render('login');
   });
@@ -69,56 +67,34 @@ module.exports = function(){
   });
     
 
-  // Logs in the user
+// Logs in the user
   app.post('/Parselogin', function(req, res) {
-    Parse.User.logIn(req.body.username, req.body.password, {
-      success: function(user){
-
-            console.log("User Logged in:" + user.attributes.username + ", ID: "+user.id);
-            console.log("Serverside login called.!!");
-           
-            var data = { username : user.attributes.username,
-                      password : req.body.password,
-                      objectId : user.id
-                    };
-                    console.log(user);
-                    console.log("Login successfull, Login ID: "+ user.id +", Username: "+ user.attributes.username);
-                   // req.session.username = user.attributes.username;
-                    console.log("Request-Details: "+req);
-                    res.json(data);
-        },
-        error: function(user, error){
-            console.log(error.message);
-            console.log("Login unsuccessfull");
-            var data = { username : "",
-                      password : "",
-                      objectId : "",
-                      error: error
-                    };
-            res.json(data);
-        }
-
-    });
+        Parse.User.logIn(req.body.username, req.body.password, {
+          success: function(user){
+                console.log("User Logged in:" + user.attributes.username + ", ID: "+user.id);
+                console.log("Serverside login called.!!");
+               
+                var data = { username : user.attributes.username,
+                          password : req.body.password,
+                          objectId : user.id
+                };
+                console.log(user);
+                console.log("Login successfull, Login ID: "+ user.id +", Username: "+ user.attributes.username);
+                res.json(data);
+            },
+            error: function(user, error){
+                console.log(error.message);
+                console.log("Login unsuccessfull");
+                var data = { username : "",
+                          password : "",
+                          objectId : "",
+                          error: error
+                };
+                res.json(data);
+            }
+        });
   });
-
-
-//Obsolute_Code to initialize session on client side if login is mage on server side.
-app.post('/loginSession', function(req, res) {
-
-    var sessionToken = req.body.sessionToken;
-    console.log("loginSession called..!!");
-    Parse.User.become(sessionToken).then(function (user) {
-
-      console.log("exports.loginSession -- become -- success");
-      console.log("The current user is now set to user.");
-      //res.redirect('/home/language');
-
-    }, function (error) {
-      // The token could not be validated.
-      console.log("exports.loginSession -- become -- error = " + error);
-
-    });
-});                          
+                         
 
   //Logs out the user
   app.get('/logout', function(req, res) {
@@ -153,8 +129,7 @@ app.post('/loginSession', function(req, res) {
       error: function(error) {
         // Show the error message somewhere
         console.log("Password reset Error: " + error.code + " " + error.message);
-        
-                res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Password reset not successfull, '+ error.message + '<br><a href="'+redirectLink+'">Back to '+redirectLinkName+'</a></h3></body>');
+        res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Password reset not successfull, '+ error.message + '<br><a href="'+redirectLink+'">Back to '+redirectLinkName+'</a></h3></body>');
       }
     });
   });
@@ -162,20 +137,19 @@ app.post('/loginSession', function(req, res) {
 
 // Renders homepage
   app.get('/homepage', function(req, res) {
-  
-    var user = Parse.User.current();
-    console.log(user);
-    if(user != null){
-      console.log("User logged in, "+user.attributes.username);
-      res.render('homepage');
-    }
-    else{
-      console.log("No session found..!!");
-      res.render('login');
-    }
+      var user = Parse.User.current();
+      console.log(user);
+      if(user != null){
+        console.log("User logged in, "+user.attributes.username);
+        res.render('homepage');
+      }
+      else{
+        console.log("No session found..!!");
+        res.render('login');
+      }
   });
  
-//Code to populate user info on the homepage.
+/*//Code to populate user info on the homepage.
   app.get('/userinfo/:id', function(req, res) {
      var userId = req.params.id;
      console.log("UserID="+userId);
@@ -190,7 +164,7 @@ app.post('/loginSession', function(req, res) {
             console.log(error);
         }
     });
-  });
+  });*/
 
 //Code to fetch all users according to the search query.
 app.get('/search/:skip/:key', function(req, res) {
@@ -254,7 +228,7 @@ app.get('/search/:skip/', function(req, res) {
   });
   
 
-  app.get('/userdetails/:id/:reqUser', function(req, res) {
+  /*app.get('/userdetails/:id/:reqUser', function(req, res) {
      var userId = req.params.id;
      var reqUserId = req.params.reqUser;
      console.log(userId+", ReqUser: "+reqUserId);
@@ -297,7 +271,7 @@ app.get('/search/:skip/', function(req, res) {
               console.log(error);
           }
     });
-  });
+  });*/
 
   // Logged user follow/unfollw a selected user
   app.post('/follow', function(req, res) {
@@ -347,9 +321,7 @@ app.get('/search/:skip/', function(req, res) {
                   else{
                       //Request made from Profile page.
                       res.redirect('/p/profile');        
-                  }
-
-                            
+                  }                          
         },
         error: function(user, error){
               console.log(user.attributes.username + "Follow/Unfollow action unsuccessfull, " + error);
@@ -407,7 +379,7 @@ app.get('/populateUsers', function(req, res) {
   });
 
 // Populate friends of the clicked user.
-app.get('/populateFriends/:id', function(req, res) {
+/*app.get('/populateFriends/:id', function(req, res) {
        
     var userId = req.params.id;
 
@@ -446,7 +418,7 @@ app.get('/populateFriends/:id', function(req, res) {
           console.log("Clicked user cannot be fetched -- Error: " + error.code + " " + error.message);
         } 
     });         
-  });
+  });*/
 
   return app;
 }();

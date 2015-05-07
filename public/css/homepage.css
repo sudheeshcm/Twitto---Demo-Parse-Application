@@ -5,6 +5,7 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
+  background-color: #F0F6FF;
 }
 
 h1, .h1,
@@ -420,9 +421,22 @@ color: #0066CC;
     top:350px;
 }
 
-#homePageSearchSpan
+#myimage
 {
-  float: right; 
-  padding: 4px; 
-  padding-right: 170px;
+  height: 35px; 
+  width: 40px; 
+  vertical-align: middle;
 }
+
+/*Login page*/
+
+#forgetPass
+{
+  font-style: italic;
+}
+
+#signupButton
+{
+  width: 24%;
+}
+

@@ -136,7 +136,8 @@ module.exports = function(){
     console.log("Edit details called, "+ username +", "+ email);
 
     var user = Parse.User.current();
-    console.log("Current User Fetched, ID:" +user.id+", Username: "+ user.attributes.username);
+    if (user != null) {
+          console.log("Current User Fetched, ID:" +user.id+", Username: "+ user.attributes.username);
     
         user.set('username', username);
         user.set('fullname', fullname);
@@ -153,7 +154,14 @@ module.exports = function(){
                           console.log("User fields not updated, " + error.message);
                           res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">User edit not successfull, '+ error.message + '<br><a href="/p/edit">Back to User edit page</a></h3></body>');
                         }    
-        }); 
+        });   
+    }
+    else
+    {
+        console.log("No user session found.");
+        res.redirect('/login');
+    }
+    
       
   });
 
@@ -163,7 +171,8 @@ module.exports = function(){
     console.log("Logged User Password reset called.");
     
     var user = Parse.User.current();
-    console.log(user.attributes.username+", tried Password update.");
+    if (user != null) {
+      console.log(user.attributes.username+", tried Password update.");
     
       user.set("password", newPass);
       user.save(null, {
@@ -175,10 +184,14 @@ module.exports = function(){
                         error: function(data, error) {
                           console.log("Password not updated, " + error.message);
                           res.error(error);
-                          //res.send('<body style="background-color: azure;margin-top: 60px;"><h3 align="center">Password change not successfull, '+ error.message + '<br><a href="/p/edit">Back to User edit page</a></h3></body>');
                         }
       })
-     // }  
+    }
+    else
+    {
+        console.log("No user session found.");
+        res.redirect('/login');
+    }
                       
   });
 
