@@ -1,0 +1,19 @@
+#searchDiv
+{
+	margin-left: 175px;padding: 6px;margin-top: 35px;width: 38%;
+}
+
+#keyword
+{
+	width:300px;
+}
+
+#Page-heading
+{
+	color:#336699;text-align:left;
+}
+
+#loadMoreBtn
+{
+	border-radius: 6px;
+}

@@ -1,0 +1,39 @@
+#edit-headder
+{
+	padding-left:160px;
+}
+
+#AdminHeadder
+{
+	font-size: 35px;
+}
+
+.editFieldsWidth
+{
+	width: 300px;
+}
+
+#resetPassBtn
+{
+	width: 125px; margin-left: 7px;
+}
+
+#about
+{
+	width: 542px;
+}
+
+.passResetFields
+{
+	width: 175px; float: right; margin-right: 200px;
+}
+
+#resetPasswordBtn
+{
+	margin-left: 50px;
+}
+
+#editPageFooter
+{
+	margin-right: 125px;
+}

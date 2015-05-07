@@ -227,8 +227,8 @@ app.get('/search/:skip/', function(req, res) {
         });      
   });
   
-
-  /*app.get('/userdetails/:id/:reqUser', function(req, res) {
+//Fetch the clicked user details
+  app.get('/userdetails/:id/:reqUser', function(req, res) {
      var userId = req.params.id;
      var reqUserId = req.params.reqUser;
      console.log(userId+", ReqUser: "+reqUserId);
@@ -271,7 +271,7 @@ app.get('/search/:skip/', function(req, res) {
               console.log(error);
           }
     });
-  });*/
+  });
 
   // Logged user follow/unfollw a selected user
   app.post('/follow', function(req, res) {
@@ -379,7 +379,7 @@ app.get('/populateUsers', function(req, res) {
   });
 
 // Populate friends of the clicked user.
-/*app.get('/populateFriends/:id', function(req, res) {
+app.get('/populateFriends/:id', function(req, res) {
        
     var userId = req.params.id;
 
@@ -418,7 +418,7 @@ app.get('/populateUsers', function(req, res) {
           console.log("Clicked user cannot be fetched -- Error: " + error.code + " " + error.message);
         } 
     });         
-  });*/
+  });
 
   return app;
 }();

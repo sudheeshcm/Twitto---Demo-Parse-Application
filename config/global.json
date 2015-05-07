@@ -1,7 +1,7 @@
 {
     "applications": {
         "_default": {
-            "link": "twitto"
+            "link": "Twitto_development"
         }, 
         "twitto": {
             "applicationId": "4YqiCMjLay8DDfcq6KlrNV3F38P8EJT1Y9ZnvuUg", 
@@ -9,6 +9,13 @@
 	    "clientKey": "DvWb7Ql768IRZHlGR9EsrggdETp5E1m7CnM00FWp",
 	    "javaScriptKey": "9JupQ9cO8O6ECM20awuueXBhxk1YeBx8tATmyNOc",
 	    "restApiKey": "gLgEF6L4KJOKWDVRulm1M9yihnsM1o7umVs73Kze"
+        },
+        "Twitto_development": {
+            "applicationId": "POnKwQyIuggEPBnqbesSK2s3xs9PuyM1K78GLB6h", 
+            "masterKey": "ptpoM7qzlxE6JYe8JXg8DRny1VWtuamU7QwMk38d",
+            "clientKey": "Cs4bT5wGwm4JXRGL11gqTlpHJryn4qz5PkymMp82",
+            "javaScriptKey": "ykqgt19i7gMeUlnXXtdxc2VZ6N8AuJbuNcj8qvAJ",
+            "restApiKey": "AHU2xKvwfdljSlOoumbL1UW5RWAfrPtlp08plTwG"
         }
     }, 
     "global": {

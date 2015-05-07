@@ -75,6 +75,9 @@ resetPassBtn.onclick = function() {
 var passResetcancel = document.getElementById('passResetcancel'); // Assumes element with id='button'
 
 passResetcancel.onclick = function() {
+        document.getElementById('passResetMsg').innerHTML= "";
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
         document.getElementById('userEditInfo').style.display = 'block';
         document.getElementById('popup').style.display = 'none';
 };
