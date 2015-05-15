@@ -16,7 +16,7 @@ var signup = function(){
 		document.getElementById("Email").value = '';
 		document.getElementById("info-error").innerHTML = "Password mismatch.";
     } 
-	else if(/^[a-zA-Z0-9-_@.]*$/.test(username) == false){
+ 	else if(/^[a-zA-Z0-9-_@.]*$/.test(username) == false){
 		// Validation logic
 		document.getElementById("Username").value = '';
 		document.getElementById("Password").value = '';
